@@ -78,12 +78,23 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
   - `abundance.tsv`
   - `run_info.json`
   - `*.log.txt`
+- `analysis/<sample>/tximport/`
+  - `*.gene_tpm.tsv`
+  - `*.gene_counts.tsv`
+  - `*.gene_counts_length_scaled.tsv`
+  - `*.gene_counts_scaled.tsv`
+  - `*.gene_lengths.tsv`
+  - `*.transcript_tpm.tsv`
+  - `*.transcript_counts.tsv`
+  - `*.transcript_lengths.tsv`
 
 </details>
 
 [featureCounts](https://subread.sourceforge.net/featureCounts.html) takes a file with aligned sequencing reads, plus a list of genomic features and counts how many reads map to each feature.
 
 [Kallisto](http://pachterlab.github.io/kallisto/) quantifies abundances of transcripts from RNA-Seq data using high-throughput sequencing reads.
+
+[tximport](https://bioconductor.org/packages/release/bioc/html/tximport.html) imports transcript-level abundance estimates from Kallisto and summarizes them at the gene level using tx2gene mappings automatically generated from the GTF reference file. Outputs include gene and transcript-level TPM, counts, lengths, and multiple normalization options for downstream analysis.
 
 ### Fusion Calling
 

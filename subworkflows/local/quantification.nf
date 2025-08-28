@@ -40,7 +40,7 @@ workflow QUANTIFICATION {
     )
     ch_versions = ch_versions.mix(KALLISTO_QUANT.out.versions)
 
-    ch_kallisto_grouped = KALLISTO_QUANT.out.abundance
+    ch_kallisto_for_tximport = KALLISTO_QUANT.out.abundance
         .map { meta, abundance ->
             def meta_sample = [id: meta.sample]
             [meta_sample, abundance]
@@ -49,7 +49,7 @@ workflow QUANTIFICATION {
 
     CUSTOM_TX2GENE(
         gtf,
-        ch_kallisto_grouped,
+        ch_kallisto_for_tximport,
         "kallisto",
         "gene_id",
         "gene_name"
@@ -57,7 +57,7 @@ workflow QUANTIFICATION {
     ch_versions = ch_versions.mix(CUSTOM_TX2GENE.out.versions)
 
     TXIMETA_TXIMPORT(
-        ch_kallisto_grouped,
+        ch_kallisto_for_tximport,
         CUSTOM_TX2GENE.out.tx2gene,
         "kallisto"
     )

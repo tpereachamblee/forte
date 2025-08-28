@@ -1,0 +1,56 @@
+nextflow_process {
+
+    name "Test Process TXIMETA_TXIMPORT"
+    script "../main.nf"
+    process "TXIMETA_TXIMPORT"
+    tag "modules"
+    tag "modules_nfcore"
+    tag "tximeta"
+    tag "tximport"
+    tag "tximeta/tximport"
+
+    test("Should import transcript quantifications and generate gene-level summaries") {
+        when {
+            process {
+                """
+                // Create test abundance.tsv content
+                def abundance_content = '''
+target_id	length	eff_length	est_counts	tpm
+ENST00000415118.1	100	95	10	5.2
+ENST00000448914.1	150	145	20	6.8
+ENST00000434970.2	200	195	15	3.8
+                '''.stripIndent()
+
+                // Create test tx2gene mapping
+                def tx2gene_content = '''
+transcript_id	gene_id	gene_name
+ENST00000415118.1	ENSG00000290825	GENE1
+ENST00000448914.1	ENSG00000223972	GENE2
+ENST00000434970.2	ENSG00000243485	GENE3
+                '''.stripIndent()
+
+                // Set up test quantification data
+                def quant_dir = file("test_quant")
+                quant_dir.mkdirs()
+                def abundance_file = file("test_quant/abundance.tsv")
+                abundance_file.text = abundance_content
+
+                // Set up tx2gene file
+                def tx2gene_file = file("tx2gene.tsv")
+                tx2gene_file.text = tx2gene_content
+
+                input[0] = [ [ id: 'test_sample' ], quant_dir ]
+                input[1] = [ [ id: 'tx2gene' ], tx2gene_file ]
+                input[2] = "kallisto"
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+    }
+}

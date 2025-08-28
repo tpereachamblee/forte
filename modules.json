@@ -42,6 +42,11 @@
                         "git_sha": "bba7e362e4afead70653f84d8700588ea28d0f9e",
                         "installed_by": ["modules"]
                     },
+                    "custom/tx2gene": {
+                        "branch": "master",
+                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "installed_by": ["modules"]
+                    },
                     "fastp": {
                         "branch": "master",
                         "git_sha": "20a508676f40d0fd3f911ac595af91ec845704c4",
@@ -170,6 +175,11 @@
                         "git_sha": "911696ea0b62df80e900ef244d7867d177971f73",
                         "installed_by": ["modules"],
                         "patch": "modules/nf-core/subread/featurecounts/subread-featurecounts.diff"
+                    },
+                    "tximeta/tximport": {
+                        "branch": "master",
+                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "installed_by": ["modules"]
                     },
                     "ucsc/gtftogenepred": {
                         "branch": "master",

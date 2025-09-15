@@ -1,5 +1,5 @@
 {
-    "Should run without failures": {
+    "Test pipeline - Should run without failures": {
         "content": [
             57,
             {

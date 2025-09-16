@@ -339,7 +339,7 @@
                 "SAMPLE_PAIRED_END_arriba.cff:md5,d41d8cd98f00b204e9800998ecf8427e",
                 "SAMPLE_PAIRED_END@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_T1_1.fastp.fastq.gz:md5,c01c30082956f990c991505116e080f7",
                 "SAMPLE_PAIRED_END@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_T1_2.fastp.fastq.gz:md5,314744ed8805b87abb855c8e6b82a4f8",
-                "SAMPLE_PAIRED_END.gene.featureCounts.txt:md5,29292f6f7afd1f577e104c9f875af857",
+                "SAMPLE_PAIRED_END.gene.featureCounts.txt:md5,9284670efa26f8fbb438871bfc2c92ff",
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt.summary:md5,dd78bcf5f17f35fc42c34a36b52a470f",
                 "SAMPLE_PAIRED_END.pass.junctions.bed:md5,22aa3c6a230e6439bd1632a11d707a84",
                 "SAMPLE_PAIRED_END.pass.junctions.exon.gff3:md5,8c008a07f492a5c3b8b512179f1586ba",
@@ -358,7 +358,7 @@
                 "SAMPLE_PAIRED_END_UMI_arriba.cff:md5,d41d8cd98f00b204e9800998ecf8427e",
                 "SAMPLE_PAIRED_END_UMI@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_UMI_T1_1.fastp.fastq.gz:md5,6741d8444976807f6e3cd5d770474d4d",
                 "SAMPLE_PAIRED_END_UMI@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_UMI_T1_2.fastp.fastq.gz:md5,882962186d3e04042b89868e70630b52",
-                "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt:md5,52eb86160d3059e026492b8a126b211b",
+                "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt:md5,b2612c68520c30600d8f92c22b7553fd",
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt.summary:md5,f0f948fb0fa6f1f365e88a7bdba69bac",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.bed:md5,7afaaa04ea4b2a36865d4afc2cbe1cd9",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.exon.gff3:md5,e919be29bd5500e35dfd70e4eb60de68",
@@ -386,7 +386,7 @@
                 "SAMPLE_SINGLE_END.fusions.tsv:md5,7c3383f7eb6d79b84b0bd30a7ef02d70",
                 "SAMPLE_SINGLE_END_arriba.cff:md5,d41d8cd98f00b204e9800998ecf8427e",
                 "SAMPLE_SINGLE_END@SRR5665260.1.36873006@@SAMPLE_SINGLE_END_T1.fastp.fastq.gz:md5,4d4605641f64c810e550efc464cfc1ce",
-                "SAMPLE_SINGLE_END.gene.featureCounts.txt:md5,7072eba6cbf5a97eab7818d67265fb67",
+                "SAMPLE_SINGLE_END.gene.featureCounts.txt:md5,1f2883a123fc47f225336ff96132aef4",
                 "SAMPLE_SINGLE_END.gene.featureCounts.txt.summary:md5,ba7764d707e5e2e49e2e7d764b64c747",
                 "SAMPLE_SINGLE_END.pass.junctions.bed:md5,54e69ebea32fa07233860f2d4ea4fb76",
                 "SAMPLE_SINGLE_END.pass.junctions.exon.gff3:md5,1013ff995ca46474e6b8e5c9810cd1e5",
@@ -409,7 +409,7 @@
                 "exonGeTrInfo.tab:md5,72d4dd88d25e3c5b0bb72b12b4ac99a8",
                 "exonInfo.tab:md5,0d560290fab688b7268d88d5494bf9fe",
                 "geneInfo.tab:md5,8b608537307443ffaee4927d2b428805",
-                "genomeParameters.txt:md5,2af894b082afb598240dc1ccf5919505",
+                "genomeParameters.txt:md5,3dc5bee0a748e411c2779f9e14a7c5e6",
                 "sjdbInfo.txt:md5,5690ea9d9f09f7ff85b7fd47bd234903",
                 "sjdbList.fromGTF.out.tab:md5,8760c33e966dad0b39f440301ebbdee4",
                 "sjdbList.out.tab:md5,9e4f991abbbfeb3935a2bb21b9e258f1",
@@ -423,8 +423,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.6"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2025-05-21T12:00:52.783009"
+        "timestamp": "2025-09-15T18:16:55.541668421"
     }
 }

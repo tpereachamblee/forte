@@ -42,7 +42,7 @@ workflow QUANTIFICATION {
 
     ch_kallisto_for_tximport = KALLISTO_QUANT.out.abundance
         .map { meta, abundance ->
-            [meta, abundance.getParent()]
+            [meta, file(abundance.getParent())]
         }
 
     CUSTOM_TX2GENE(

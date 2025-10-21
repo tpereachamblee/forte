@@ -409,7 +409,7 @@
                 "exonGeTrInfo.tab:md5,72d4dd88d25e3c5b0bb72b12b4ac99a8",
                 "exonInfo.tab:md5,0d560290fab688b7268d88d5494bf9fe",
                 "geneInfo.tab:md5,8b608537307443ffaee4927d2b428805",
-                "genomeParameters.txt:md5,3dc5bee0a748e411c2779f9e14a7c5e6",
+                "genomeParameters.txt:md5,119ce916dad2f3248035759c46f8c9ad",
                 "sjdbInfo.txt:md5,5690ea9d9f09f7ff85b7fd47bd234903",
                 "sjdbList.fromGTF.out.tab:md5,8760c33e966dad0b39f440301ebbdee4",
                 "sjdbList.out.tab:md5,9e4f991abbbfeb3935a2bb21b9e258f1",
@@ -425,6 +425,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-09-15T18:16:55.541668421"
+        "timestamp": "2025-10-21T14:26:00.40332551"
     }
 }

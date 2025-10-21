@@ -57,6 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#166](https://github.com/mskcc/forte/pull/166) - Switch AGFusion plotting mode to pdf
 
+- [#1](https://github.com/MSK-Staging/FORTE/pull/1) - Adapted pipeline for Enterprise Cloud GitHub
+
 ### `Dependencies`
 
 ### `Deprecated`

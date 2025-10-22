@@ -59,6 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#1](https://github.com/MSK-Staging/FORTE/pull/1) - Adapted pipeline for Enterprise Cloud GitHub
 
+- [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
+
 ### `Dependencies`
 
 ### `Deprecated`

@@ -4,7 +4,7 @@ nextflow_pipeline {
     script "../main.nf"
     config "tests/pipeline.config"
 
-    test("Should run without failures") {
+    test("Test pipeline - Should run without failures") {
 
         when {
             params {

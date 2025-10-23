@@ -98,7 +98,7 @@ output_cols <- c(
 )
 
 
-junctionsOI <- fread(args_opt$junctions, data.table = F)
+junctionsOI <- fread(args_opt$junctions, data.table = F, fill = T)
 tab <- fread(args_opt$portcullis, data.table = F)
 
 if (nrow(tab) == 0) {
@@ -135,8 +135,8 @@ toReport <- pre_Report %>%
     mutate(nb_raw_aln = if_else(is.na(nb_raw_aln), 0, nb_raw_aln))
 
 toReport <- toReport %>% pivot_wider(names_from = junction_type,
-                                     values_from = nb_raw_aln,
-                                     values_fill = 0)
+                                    values_from = nb_raw_aln,
+                                    values_fill = 0)
 toReport <- toReport %>% mutate(
     percent_oncogenic = OI / (WT + OI),
     action = ifelse(percent_oncogenic > 0 &

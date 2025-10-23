@@ -25,7 +25,7 @@ process ONCO_JUNCS{
     oncogenic_isoforms.R \\
         --portcullis ${portcullis} \\
         --junctions ${reportable_junctions} \\
-        --sample ${prefix} 
+        --sample ${prefix}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

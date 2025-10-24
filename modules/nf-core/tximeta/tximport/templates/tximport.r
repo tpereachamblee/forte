@@ -120,12 +120,19 @@ create_summarized_experiment <- function(counts, abundance, length, col_data, ro
 # Define pattern for file names based on quantification type
 pattern <- ifelse('$quant_type' == "kallisto", "abundance.tsv", "quant.sf")
 fns <- list.files('quants', pattern = pattern, recursive = T, full.names = T)
-names <- basename(dirname(fns))
+# names <- basename(dirname(fns))  # Original: uses work directory hash
+# Use sample name from meta if available, otherwise fall back to directory name
+if ('$meta.id' != 'null'){
+    names <- '$meta.id'
+} else {
+    names <- basename(dirname(fns))
+}
 names(fns) <- names
 dropInfReps <- '$quant_type' == "kallisto"
 
 # Import transcript-level quantifications
-txi <- tximport(fns, type = '$quant_type', txOut = TRUE, dropInfReps = dropInfReps, ignoreTxVersion = TRUE)
+# Note: ignoreTxVersion is applied in summarizeToGene() calls, not here during initial import
+txi <- tximport(fns, type = '$quant_type', txOut = TRUE, dropInfReps = dropInfReps)
 
 # Read transcript and sample data
 transcript_info <- read_transcript_info('$tx2gene')
@@ -147,12 +154,18 @@ params <- list(
 
 # Process gene-level data if tx2gene mapping is available
 if ("tx2gene" %in% names(transcript_info) && !is.null(transcript_info\$tx2gene)) {
-    tx2gene <- transcript_info\$tx2gene
+    # Read tx2gene directly from file to avoid version-handling issues in read_transcript_info()
+    tx2gene_direct <- read.csv('$tx2gene', sep="\t", header = TRUE)
+    colnames(tx2gene_direct) <- c("tx", "gene_id", "gene_name")
+    tx2gene <- tx2gene_direct[,1:2]
     gi <- summarizeToGene(txi, tx2gene = tx2gene, ignoreTxVersion = TRUE)
     gi.ls <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "lengthScaledTPM", ignoreTxVersion = TRUE)
     gi.s <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "scaledTPM", ignoreTxVersion = TRUE)
 
-    gene_info <- transcript_info\$gene[match(rownames(gi[[1]]), transcript_info\$gene[["gene_id"]]),]
+    # gene_info <- transcript_info\$gene[match(rownames(gi[[1]]), transcript_info\$gene[["gene_id"]]),]
+    # Use the clean tx2gene data for gene names instead of corrupted transcript_info
+    gene_info_clean <- unique(tx2gene_direct[,2:3])
+    gene_info <- gene_info_clean[match(rownames(gi[[1]]), gene_info_clean[["gene_id"]]),]
     rownames(gene_info) <- NULL
     col_data_frame <- DataFrame(coldata)
 

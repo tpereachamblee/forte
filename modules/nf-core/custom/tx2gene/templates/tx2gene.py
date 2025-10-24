@@ -53,7 +53,9 @@ def read_top_transcripts(quant_dir: str, file_pattern: str) -> Set[str]:
         quant_file_path = glob.glob(os.path.join(quant_dir, "*", file_pattern))[0]
         with open(quant_file_path) as file_handle:
             # Read the file and extract the top 100 transcripts
-            return {line.split()[0] for i, line in enumerate(file_handle) if i > 0 and i <= 100}
+            # return {line.split()[0] for i, line in enumerate(file_handle) if i > 0 and i <= 100}
+            # Strip version suffixes (e.g., ENST00000415118.1 -> ENST00000415118) for GTF matching
+            return {line.split()[0].rsplit('.', 1)[0] for i, line in enumerate(file_handle) if i > 0 and i <= 100}
     except IndexError:
         # Log an error and raise a FileNotFoundError if the quant file does not exist
         logger.error("No quantification files found.")

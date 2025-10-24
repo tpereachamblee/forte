@@ -125,7 +125,7 @@ names(fns) <- names
 dropInfReps <- '$quant_type' == "kallisto"
 
 # Import transcript-level quantifications
-txi <- tximport(fns, type = '$quant_type', txOut = TRUE, dropInfReps = dropInfReps)
+txi <- tximport(fns, type = '$quant_type', txOut = TRUE, dropInfReps = dropInfReps, ignoreTxVersion = TRUE)
 
 # Read transcript and sample data
 transcript_info <- read_transcript_info('$tx2gene')
@@ -148,9 +148,9 @@ params <- list(
 # Process gene-level data if tx2gene mapping is available
 if ("tx2gene" %in% names(transcript_info) && !is.null(transcript_info\$tx2gene)) {
     tx2gene <- transcript_info\$tx2gene
-    gi <- summarizeToGene(txi, tx2gene = tx2gene)
-    gi.ls <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "lengthScaledTPM")
-    gi.s <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "scaledTPM")
+    gi <- summarizeToGene(txi, tx2gene = tx2gene, ignoreTxVersion = TRUE)
+    gi.ls <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "lengthScaledTPM", ignoreTxVersion = TRUE)
+    gi.s <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "scaledTPM", ignoreTxVersion = TRUE)
 
     gene_info <- transcript_info\$gene[match(rownames(gi[[1]]), transcript_info\$gene[["gene_id"]]),]
     rownames(gene_info) <- NULL

@@ -61,6 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
 
+- [#4](https://github.com/MSK-Staging/FORTE/pull/4) - Generate percent oncogenic isoforms from portcullis output
+
 ### `Dependencies`
 
 ### `Deprecated`

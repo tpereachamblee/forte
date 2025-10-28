@@ -151,7 +151,7 @@ output:
           description: |
             Length values derived from tximport output without summarizeToGene(),
             without a 'countsFromAbundance' specification
-          pattern: "*transcript_lengths.tsv"
+          pattern: "*gene_lengths.tsv"
           ontologies:
             - edam: http://edamontology.org/format_3475 # TSV
   versions:

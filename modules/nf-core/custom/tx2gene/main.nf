@@ -9,14 +9,14 @@ process CUSTOM_TX2GENE {
 
     input:
     tuple val(meta), path(gtf)
-    tuple val(meta2), path("quants/*")
+    tuple val(meta2), path ("quants/*")
     val quant_type
     val id
     val extra
 
     output:
     tuple val(meta), path("*tx2gene.tsv"), emit: tx2gene
-    path "versions.yml", emit: versions
+    path "versions.yml"                  , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -30,7 +30,7 @@ process CUSTOM_TX2GENE {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-      python: \$(python --version | sed 's/Python //g')
+        python: \$(python --version | sed 's/Python //g')
     END_VERSIONS
     """
 }

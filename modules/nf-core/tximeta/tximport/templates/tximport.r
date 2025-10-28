@@ -154,10 +154,16 @@ params <- list(
 
 # Process gene-level data if tx2gene mapping is available
 if ("tx2gene" %in% names(transcript_info) && !is.null(transcript_info\$tx2gene)) {
+    # tx2gene <- transcript_info\$tx2gene
     # Read tx2gene directly from file to avoid version-handling issues in read_transcript_info()
     tx2gene_direct <- read.csv('$tx2gene', sep="\t", header = TRUE)
     colnames(tx2gene_direct) <- c("tx", "gene_id", "gene_name")
     tx2gene <- tx2gene_direct[,1:2]
+
+    # ignoreTxVersion is applied here in summarizeToGene() calls to work with unversioned tx2gene file
+    # gi <- summarizeToGene(txi, tx2gene = tx2gene)
+    # gi.ls <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "lengthScaledTPM")
+    # gi.s <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "scaledTPM")
     gi <- summarizeToGene(txi, tx2gene = tx2gene, ignoreTxVersion = TRUE)
     gi.ls <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "lengthScaledTPM", ignoreTxVersion = TRUE)
     gi.s <- summarizeToGene(txi, tx2gene = tx2gene, countsFromAbundance = "scaledTPM", ignoreTxVersion = TRUE)
@@ -204,6 +210,7 @@ done <- lapply(params, write_se_table, prefix)
 ################################################
 
 sink(paste(prefix, "R_sessionInfo.log", sep = '.'))
+# citation("tximeta")
 citation("tximport")
 print(sessionInfo())
 sink()
@@ -215,11 +222,13 @@ sink()
 ################################################
 
 r.version <- strsplit(version[['version.string']], ' ')[[1]][3]
+# tximeta.version <- as.character(packageVersion('tximeta'))
 tximport.version <- as.character(packageVersion('tximport'))
 
 writeLines(
     c(
         '"${task.process}":',
+        # paste('    bioconductor-tximeta:', tximeta.version)
         paste('    bioconductor-tximport:', tximport.version)
     ),
 'versions.yml')

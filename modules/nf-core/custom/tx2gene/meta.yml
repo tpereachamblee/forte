@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_tx2gene"
-description: Make a transcript/gene mapping from a GTF and cross-reference with transcript quantifications.
+description: Make a transcript/gene mapping from a GTF and cross-reference with transcript
+  quantifications.
 keywords:
   - gene
   - gtf
@@ -52,13 +53,17 @@ output:
             e.g. `[ id:'yeast' ]`
       - "*tx2gene.tsv":
           type: file
-          description: transcript to gene mapping file
-          pattern: "*tx2gene.tsv"
+          description: A transcript/ gene mapping table in TSV format
+          pattern: "*.tx2gene.tsv"
+          ontologies:
+            - edam: http://edamontology.org/format_3475 # TSV
   versions:
-    - path: "versions.yml"
-      type: file
-      description: File containing software versions
-      pattern: "versions.yml"
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@pinin4fjords"
 maintainers:

@@ -3,7 +3,7 @@ process TXIMETA_TXIMPORT {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/bioconductor-tximeta:1.20.1--r43hdfd78af_0' :
+        'https://depot.galaxyproject.org/singularity/bioconductor-tximeta%3A1.20.1--r43hdfd78af_0' :
         'biocontainers/bioconductor-tximeta:1.20.1--r43hdfd78af_0' }"
 
     input:
@@ -29,16 +29,15 @@ process TXIMETA_TXIMPORT {
     template 'tximport.r'
 
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.gene_tpm.tsv
-    touch ${prefix}.gene_counts.tsv
-    touch ${prefix}.gene_counts_length_scaled.tsv
-    touch ${prefix}.gene_counts_scaled.tsv
-    touch ${prefix}.gene_lengths.tsv
-    touch ${prefix}.transcript_tpm.tsv
-    touch ${prefix}.transcript_counts.tsv
-    touch ${prefix}.transcript_lengths.tsv
+    touch ${meta.id}.gene_tpm.tsv
+    touch ${meta.id}.gene_counts.tsv
+    touch ${meta.id}.gene_counts_length_scaled.tsv
+    touch ${meta.id}.gene_counts_scaled.tsv
+    touch ${meta.id}.gene_lengths.tsv
+    touch ${meta.id}.transcript_tpm.tsv
+    touch ${meta.id}.transcript_counts.tsv
+    touch ${meta.id}.transcript_lengths.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

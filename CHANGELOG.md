@@ -55,7 +55,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#164](https://github.com/mskcc/forte/pull/164) - Allow samples with no fusions to pass through final steps of fusion pipeline
 
-- [#168](https://github.com/mskcc/forte/pull/168) - Move fillout commands to bin, remove chr prefix from chromosome if exists in provided MAF
+- [#166](https://github.com/mskcc/forte/pull/166) - Switch AGFusion plotting mode to pdf
+
+- [#1](https://github.com/MSK-Staging/FORTE/pull/1) - Adapted pipeline for Enterprise Cloud GitHub
+
+- [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
+
+- [#6](https://github.com/MSK-Staging/FORTE/pull/6) - remove chr prefix from chromosome if exists in provided MAF
 
 ### `Dependencies`
 

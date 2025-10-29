@@ -7,17 +7,18 @@ Changes in component 'nf-core/tximeta/tximport'
 Changes in 'tximeta/tximport/templates/tximport.r':
 --- modules/nf-core/tximeta/tximport/templates/tximport.r
 +++ modules/nf-core/tximeta/tximport/templates/tximport.r
-@@ -120,11 +120,18 @@
+@@ -120,11 +120,19 @@
  # Define pattern for file names based on quantification type
  pattern <- ifelse('$quant_type' == "kallisto", "abundance.tsv", "quant.sf")
  fns <- list.files('quants', pattern = pattern, recursive = T, full.names = T)
 -names <- basename(dirname(fns))
 +# names <- basename(dirname(fns))  # Original: uses work directory hash
-+# Use sample name from meta if available, otherwise fall back to directory name
-+if ('$meta.id' != 'null'){
++# Use meta.id for single-sample case (e.g., forte), otherwise use directory names for multiple samples
++dir_names <- basename(dirname(fns))
++if ('$meta.id' != 'null' && length(fns) == 1){
 +    names <- '$meta.id'
 +} else {
-+    names <- basename(dirname(fns))
++    names <- dir_names
 +}
  names(fns) <- names
  dropInfReps <- '$quant_type' == "kallisto"
@@ -27,7 +28,7 @@ Changes in 'tximeta/tximport/templates/tximport.r':
  txi <- tximport(fns, type = '$quant_type', txOut = TRUE, dropInfReps = dropInfReps)
  
  # Read transcript and sample data
-@@ -147,12 +154,24 @@
+@@ -147,12 +155,24 @@
  
  # Process gene-level data if tx2gene mapping is available
  if ("tx2gene" %in% names(transcript_info) && !is.null(transcript_info\$tx2gene)) {
@@ -57,33 +58,6 @@ Changes in 'tximeta/tximport/templates/tximport.r':
 +    gene_info <- gene_info_clean[match(rownames(gi[[1]]), gene_info_clean[["gene_id"]]),]
      rownames(gene_info) <- NULL
      col_data_frame <- DataFrame(coldata)
- 
-@@ -191,7 +210,8 @@
- ################################################
- 
- sink(paste(prefix, "R_sessionInfo.log", sep = '.'))
--citation("tximeta")
-+# citation("tximeta")
-+citation("tximport")
- print(sessionInfo())
- sink()
- 
-@@ -202,12 +222,14 @@
- ################################################
- 
- r.version <- strsplit(version[['version.string']], ' ')[[1]][3]
--tximeta.version <- as.character(packageVersion('tximeta'))
-+# tximeta.version <- as.character(packageVersion('tximeta'))
-+tximport.version <- as.character(packageVersion('tximport'))
- 
- writeLines(
-     c(
-         '"${task.process}":',
--        paste('    bioconductor-tximeta:', tximeta.version)
-+        # paste('    bioconductor-tximeta:', tximeta.version)
-+        paste('    bioconductor-tximport:', tximport.version)
-     ),
- 'versions.yml')
  
 
 ************************************************************

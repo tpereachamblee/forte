@@ -121,11 +121,12 @@ create_summarized_experiment <- function(counts, abundance, length, col_data, ro
 pattern <- ifelse('$quant_type' == "kallisto", "abundance.tsv", "quant.sf")
 fns <- list.files('quants', pattern = pattern, recursive = T, full.names = T)
 # names <- basename(dirname(fns))  # Original: uses work directory hash
-# Use sample name from meta if available, otherwise fall back to directory name
-if ('$meta.id' != 'null'){
+# Use meta.id for single-sample case (e.g., forte), otherwise use directory names for multiple samples
+dir_names <- basename(dirname(fns))
+if ('$meta.id' != 'null' && length(fns) == 1){
     names <- '$meta.id'
 } else {
-    names <- basename(dirname(fns))
+    names <- dir_names
 }
 names(fns) <- names
 dropInfReps <- '$quant_type' == "kallisto"
@@ -210,8 +211,7 @@ done <- lapply(params, write_se_table, prefix)
 ################################################
 
 sink(paste(prefix, "R_sessionInfo.log", sep = '.'))
-# citation("tximeta")
-citation("tximport")
+citation("tximeta")
 print(sessionInfo())
 sink()
 
@@ -222,14 +222,12 @@ sink()
 ################################################
 
 r.version <- strsplit(version[['version.string']], ' ')[[1]][3]
-# tximeta.version <- as.character(packageVersion('tximeta'))
-tximport.version <- as.character(packageVersion('tximport'))
+tximeta.version <- as.character(packageVersion('tximeta'))
 
 writeLines(
     c(
         '"${task.process}":',
-        # paste('    bioconductor-tximeta:', tximeta.version)
-        paste('    bioconductor-tximport:', tximport.version)
+        paste('    bioconductor-tximeta:', tximeta.version)
     ),
 'versions.yml')
 

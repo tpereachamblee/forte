@@ -61,6 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
 
+- [#7](https://github.com/MSK-Staging/FORTE/pull/7) - Fix failing nf-test previously not caught in [#1](https://github.com/MSK-Staging/FORTE/pull/1)
+
 ### `Dependencies`
 
 ### `Deprecated`

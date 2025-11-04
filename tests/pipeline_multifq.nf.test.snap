@@ -1,4 +1,18 @@
 {
+    "bam MD5": {
+        "content": [
+            [
+                "a255e93af409fa40a3e975605784a9a0",
+                "49d62e4e8f8b53b4800b70f436c16d3b",
+                "e4b64536131a605c9398c8789905fd81"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "24.10.5"
+        },
+        "timestamp": "2025-11-03T21:47:22.949524943"
+    },
     "Run with multiple fq per sample": {
         "content": [
             48,
@@ -280,7 +294,6 @@
                 "analysis/SAMPLE_PAIRED_END_UMI/umitools/extract/logs/SAMPLE_PAIRED_END_UMI@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_UMI_T2.umi_extract.log"
             ],
             [
-                "SAMPLE_PAIRED_END.Aligned.sortedByCoord.out.bam:md5,4d6fffc901bf73ec91336c3c977eba65",
                 "SAMPLE_PAIRED_END.Aligned.sortedByCoord.out.bam.bai:md5,e8ca44a4f0f25700862f890439058e90",
                 "SAMPLE_PAIRED_END.SJ.out.tab:md5,6520cdbb7af487d58c04496f2202ae0c",
                 "SAMPLE_PAIRED_END.fusions.discarded.tsv:md5,f519c32b31f24e83cf5ec5f5df36a227",
@@ -301,7 +314,6 @@
                 "SAMPLE_PAIRED_END.inner_distance_freq.txt:md5,6d2200c1a8a750449e75086ebfa33d70",
                 "SAMPLE_PAIRED_END.inner_distance_mean.txt:md5,65920fe115889a5b4a8f643cdb973c16",
                 "SAMPLE_PAIRED_END.inner_distance_plot.r:md5,b46cfdace01a550aa7521243c4606d41",
-                "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam:md5,6b2b22762b3b1af993386f9867e54006",
                 "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam.bai:md5,22cddc61a823f52c4a074b85a9dcc181",
                 "SAMPLE_PAIRED_END_UMI.SJ.out.tab:md5,b46cb94829fc7279d447eea2b4d3f1b7",
                 "SAMPLE_PAIRED_END_UMI.fusions.discarded.tsv:md5,5caa821f01e23b99e90eb0d85c2f6018",
@@ -327,7 +339,6 @@
                 "SAMPLE_PAIRED_END_UMI.inner_distance_freq.txt:md5,a8c2c4ca49572c20074f6025a7092d03",
                 "SAMPLE_PAIRED_END_UMI.inner_distance_mean.txt:md5,d60c452f6359154ff195c6f76600ee9c",
                 "SAMPLE_PAIRED_END_UMI.inner_distance_plot.r:md5,f3692e949cb81e4530386cdffd00794b",
-                "SAMPLE_PAIRED_END_UMI.dedup.bam:md5,5b3ba39153efdfecc7ed719db9c768a7",
                 "SAMPLE_PAIRED_END_UMI.dedup.bam.bai:md5,0f5495b56c93d377c606fb10c90ae9eb",
                 "SAMPLE_PAIRED_END_UMI.dedup_edit_distance.tsv:md5,9cc338b58a6fecf42e5c9ff24df54ef3",
                 "SAMPLE_PAIRED_END_UMI.dedup_per_umi.tsv:md5,e03c28b6b0e8f724bb91b3bd54dc2ba7",
@@ -364,6 +375,50 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-10-28T21:24:30.31296141"
+        "timestamp": "2025-11-03T21:47:21.394550861"
+    },
+    "bam statistics": {
+        "content": [
+            [
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 13,
+                    "meanReadLength": 103,
+                    "maxQuality": 255,
+                    "minQuality": 0,
+                    "meanQuality": 11,
+                    "readCount": 104486,
+                    "duplicateReadCount": 0,
+                    "sorted": false
+                },
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 13,
+                    "meanReadLength": 139,
+                    "maxQuality": 255,
+                    "minQuality": 0,
+                    "meanQuality": 135,
+                    "readCount": 18328,
+                    "duplicateReadCount": 0,
+                    "sorted": false
+                },
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 15,
+                    "meanReadLength": 139,
+                    "maxQuality": 255,
+                    "minQuality": 1,
+                    "meanQuality": 208,
+                    "readCount": 3902,
+                    "duplicateReadCount": 0,
+                    "sorted": true
+                }
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "24.10.5"
+        },
+        "timestamp": "2025-11-03T21:47:22.276459808"
     }
 }

@@ -63,6 +63,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#6](https://github.com/MSK-Staging/FORTE/pull/6) - remove chr prefix from chromosome if exists in provided MAF
 
+- [#7](https://github.com/MSK-Staging/FORTE/pull/7) - Fix failing nf-test previously not caught in [#1](https://github.com/MSK-Staging/FORTE/pull/1)
+
 ### `Dependencies`
 
 ### `Deprecated`

@@ -26,6 +26,10 @@
 
   > Ewels P, Magnusson M, Lundin S, Käller M. MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics. 2016 Oct 1;32(19):3047-8. doi: 10.1093/bioinformatics/btw354. Epub 2016 Jun 16. PubMed PMID: 27312411; PubMed Central PMCID: PMC5039924.
 
+- [tximport](https://pubmed.ncbi.nlm.nih.gov/26925227/)
+
+  > Soneson C, Love MI, Robinson MD. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research. 2015 Dec 30;4:1521. doi: 10.12688/f1000research.7563.2. PMID: 26925227; PMCID: PMC4712774.
+
 ## Software packaging/containerisation tools
 
 - [Anaconda](https://anaconda.com)

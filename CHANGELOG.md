@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#138](https://github.com/mskcc/forte/pull/128) - enable clinical gene expansion in agfusion
 
-- [#XXX](https://github.com/MSK-Staging/FORTE/pull/XXX) - add automatic tx2gene generation and tximport integration for gene-level quantification from kallisto transcript abundances
+- [#XXX](https://github.com/MSK-Staging/FORTE/pull/XXX) - add automatic tx2gene generation and tximport integration for gene-level quantification from kallisto transcript abundances. Closes [#11](https://github.com/MSK-Staging/FORTE/issues/11)
 
 ### `Fixed`
 

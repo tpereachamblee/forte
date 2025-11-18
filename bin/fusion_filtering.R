@@ -54,9 +54,9 @@ sf_flags = c(
     "ConjoinG"
 )
 cis_sage_allow = c("FGFR3::TACC3",
-                   "TACC3::FGFR3",
-                   "FGFR2::TACC2",
-                   "TACC2::FGFR2")
+                "TACC3::FGFR3",
+                "FGFR2::TACC2",
+                "TACC2::FGFR2")
 
 if (is.null(args) | length(args) < 1) {
     usage()
@@ -290,7 +290,7 @@ select_breakpoint <- function(cluster_df) {
             is.na(reann_gene3_symbol),
         both_symbol = !gene5_ensg & !gene3_ensg,
         one_symbol = (!gene5_ensg &
-                          gene3_ensg) | (gene5_ensg & !gene3_ensg)
+                        gene3_ensg) | (gene5_ensg & !gene3_ensg)
     )
 
     ## if any of the annotations have at least one symbol, select that annotation
@@ -310,7 +310,7 @@ select_breakpoint <- function(cluster_df) {
             (br$Arriba_Inframe & !is.na(br$Arriba_Inframe)))) {
         br <- br %>% filter(grepl("in-frame", br$Fusion_effect) |
                                 (Arriba_Inframe &
-                                     !is.na(Arriba_Inframe)))
+                                    !is.na(Arriba_Inframe)))
         unique_brs <- length(unique(br$breakpoint_key))
     }
     ### select breakpoint with most tools calling
@@ -359,7 +359,7 @@ get_fusion_info <- function(br) {
             (br$Arriba_Inframe & !is.na(br$Arriba_Inframe)))) {
         br <- br %>% filter(grepl("in-frame", Fusion_effect) |
                                 (Arriba_Inframe &
-                                     !is.na(Arriba_Inframe)))
+                                    !is.na(Arriba_Inframe)))
     }
     ### select annotation with max read support
     ### if still too many annotations, select via fusion_effect value
@@ -374,7 +374,7 @@ get_fusion_info <- function(br) {
             is.na(reann_gene3_symbol),
         both_symbol = !gene5_ensg & !gene3_ensg,
         one_symbol = (!gene5_ensg &
-                          gene3_ensg) | (gene5_ensg & !gene3_ensg)
+                        gene3_ensg) | (gene5_ensg & !gene3_ensg)
     )
     ## if any of the remaining annotations have at least one symbol, select that annotation
     ## select both symbols first
@@ -428,9 +428,9 @@ get_cluster_action <- function(cluster_df) {
     fp <- ifelse(all(is.na(cluster_df$FP_flag)), NA, "FP")
     ## only cis_sage if not in the allow list of cis-sage
     cis_sage <- ifelse(any(grepl("cis", cluster_df$cluster)) &
-                           !any(cluster_df$symbol_id %in% cis_sage_allow),
-                       "CIS_SAGE",
-                       NA)
+                        !any(cluster_df$symbol_id %in% cis_sage_allow),
+                    "CIS_SAGE",
+                    NA)
 
 
     reason <- paste(na.omit(c(
@@ -779,16 +779,16 @@ cis_sage_output <- final_outputfile %>% filter(
 final_outputfile <- final_outputfile %>% filter(!grepl("cis_sage", cluster) |
                                                     fusion %in% cis_sage_allow |
                                                     (grepl("cis_sage", cluster) &
-                                                         !grepl("NO_SIG_GENE", reason)))
+                                                        !grepl("NO_SIG_GENE", reason)))
 
 final_outputfile_cvr <- final_outputfile %>% filter(action == "REPORT") %>% select(sample,
-                                                                                   tool,
-                                                                                   fusion,
-                                                                                   total_support,
-                                                                                   breakpoint,
-                                                                                   frame_status_cl,
-                                                                                   tx5,
-                                                                                   tx3)
+                                                                                tool,
+                                                                                fusion,
+                                                                                total_support,
+                                                                                breakpoint,
+                                                                                frame_status_cl,
+                                                                                tx5,
+                                                                                tx3)
 final_outputfile_cvr <- final_outputfile_cvr %>% mutate(breakpoint = gsub("chr", "", breakpoint)) %>% separate_wider_delim(fusion, "::", names = c("Gene1", "Gene2")) %>%
     separate_wider_delim(breakpoint, "|", names = c("bp1", "bp2")) %>%
     separate_wider_delim(bp1, ":", names = c("Chr1", "Pos1", "Str1")) %>%

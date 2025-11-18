@@ -156,9 +156,9 @@ workflow FUSION {
 
     FUSION_FILTER(
         CFF_FINALIZE.out.filtered_cff
-             .join(STARFUSION.out.coding_effect, by:0)
-             .join(FUSIONCATCHER_DETECT.out.fusions, by:0)
-             .join(ARRIBA_ARRIBA.out.fusions, by:0),
+            .join(STARFUSION.out.coding_effect, by:0)
+            .join(FUSIONCATCHER_DETECT.out.fusions, by:0)
+            .join(ARRIBA_ARRIBA.out.fusions, by:0),
         clinical_genes,
         fusioncatcher_ref,
         gtf

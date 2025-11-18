@@ -159,7 +159,9 @@ workflow FUSION {
              .join(STARFUSION.out.coding_effect, by:0)
              .join(FUSIONCATCHER_DETECT.out.fusions, by:0)
              .join(ARRIBA_ARRIBA.out.fusions, by:0),
-        clinical_genes
+        clinical_genes,
+        fusioncatcher_ref,
+        gtf
     )
 
     AGFUSION_CLINICAL(

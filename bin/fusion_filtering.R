@@ -10,12 +10,15 @@ suppressPackageStartupMessages({
     library(data.table)
     library(purrr)
     library(tidyr)
+    library(stringr)
 })
+
+setDTthreads(0)
 
 usage <- function() {
     message("Usage:")
     message(
-        "fusion_filtering.R --cff <*.final.cff> --starfusion <*.starfusion.abridged.coding_effect.tsv> --fusioncatcher <*.fusioncatcher.fusion-genes.txt> --arriba <*.fusions.tsv> --clinical_genes <clinical_genes.txt> --out_prefix <prefix>"
+        "fusion_filtering.R --cff <*.final.cff> --starfusion <*.starfusion.abridged.coding_effect.tsv> --fusioncatcher <*.fusioncatcher.fusion-genes.txt> --arriba <*.fusions.tsv> --clinical_genes <clinical_genes.txt> --out_prefix <prefix> --fc_reference_dir <fusioncatcher reference directory> --gtf <*.gtf>"
     )
 }
 
@@ -89,29 +92,107 @@ parse_args <- function(x) {
 
 args_opt <- parse_args(paste(args, collapse = " "))
 
-possible_args = c("cff",
-                  "starfusion",
-                  "fusioncatcher",
-                  "arriba",
-                  "clinical_genes",
-                  "out_prefix")
+possible_args = c(
+    "cff",
+    "starfusion",
+    "fusioncatcher",
+    "arriba",
+    "clinical_genes",
+    "out_prefix",
+    "fc_reference_dir",
+    "gtf"
+)
 if (length(setdiff(names(args_opt), possible_args)) > 0) {
     message("Invalid options")
     usage()
     quit()
 }
 
-required_args <- c("cff",
-                   "starfusion",
-                   "fusioncatcher",
-                   "arriba",
-                   "clinical_genes",
-                   "out_prefix")
+required_args <- c(
+    "cff",
+    "starfusion",
+    "fusioncatcher",
+    "arriba",
+    "clinical_genes",
+    "out_prefix",
+    "fc_reference_dir",
+    "gtf"
+)
 if (length(setdiff(required_args, names(args_opt))) > 0) {
     message("Missing required arguments")
     usage()
     quit()
 }
+
+gtf_data <- fread(args_opt$gtf, header = FALSE, sep = "\t",
+                  col.names = c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attribute"), data.table = F)
+
+gtf_data <- gtf_data[gtf_data$feature == "gene",]
+
+extract_attributes <- function(gtf_attributes, att_of_interest){
+    att <- unlist(strsplit(gtf_attributes, " "))
+    if(att_of_interest %in% att){
+        return(gsub("\"|;","", att[which(att %in% att_of_interest)+1]))
+    } else {
+        return(NA)}
+}
+
+gtf_data$gene_id <- unlist(lapply(gtf_data$attribute, extract_attributes, "gene_id"))
+gtf_data$gene_name <- unlist(lapply(gtf_data$attribute, extract_attributes, "gene_name"))
+
+
+
+gene_mapping <- gtf_data %>%
+    select(gene_id = gene_id, gene_name = gene_name) %>%
+    distinct()  # Remove duplicate rows
+
+fc_reference_files <- list.files(args_opt$fc_reference_dir,full.names = T)
+
+### generate somatic reference flags
+somatic_flag_files <- c(
+    "Alaei-Mahabadi 18 cancers" = "18cancers.txt",
+    "DepMap CCLE" = "ccle.txt",
+    "CCLE Klijn" = "ccle2.txt",
+    "CCLE Vellichirammal" = "ccle3.txt",
+    "Cancer Genome Project" = "cgp.txt",
+    "ChimerKB 4.0" = "chimerdb4kb.txt",
+    "ChimerPub 4.0" = "chimerdb4pub.txt",
+    "ChimerSeq 4.0" = "chimerdb4seq.txt",
+    "COSMIC" = "cosmic.txt",
+    "Bao gliomas" = "gliomas.txt",
+    "Known" = "known.txt",
+    "Mitelman DB" = "mitelman.txt",
+    "TCGA oesophageal carcinomas" = "oesophagus.txt",
+    "Bailey pancreatic cancers" = "pancreases.txt",
+    "PCAWG" = "pcawg.txt",
+    "Robinson prostate cancers" = "prostate_cancer.txt",
+    "TCGA" = "tcga.txt",
+    "TumorFusions tumor" = "tcga-cancer.txt",
+    "TCGA Gao" = "tcga2.txt",
+    "TCGA Vellichirammal" = "tcga3.txt",
+    "TICdb" = "ticdb.txt"
+)
+
+if(!all(somatic_flag_files %in% basename(fc_reference_files))){
+    message("Your FusionCatcher Reference Directory is missing the following files:")
+    message(paste( somatic_flag_files[!somatic_flag_files %in% basename(fc_reference_files)],collapse = ", "))
+    message("These somatic flags will not be generated:")
+    message(paste( names(somatic_flag_files[!somatic_flag_files %in% basename(fc_reference_files)]),collapse = ", "))
+
+}
+fc_reference_files <- fc_reference_files[basename(fc_reference_files) %in% somatic_flag_files]
+somatic_flags <- rbindlist(lapply(fc_reference_files,function(flag_file){
+    file <- fread(flag_file,data.table = F,header = F)
+    flag <- names(somatic_flag_files[somatic_flag_files == basename(flag_file)])
+    file$somatic_flag <- flag
+    file$Gene1 <- ifelse(!is.na(gene_mapping$gene_name[match(file$V1,gene_mapping$gene_id)]), gene_mapping$gene_name[match(file$V1,gene_mapping$gene_id)], file$V1)
+    file$Gene2 <- ifelse(!is.na(gene_mapping$gene_name[match(file$V2,gene_mapping$gene_id)]), gene_mapping$gene_name[match(file$V2,gene_mapping$gene_id)], file$V2)
+    file$id <- paste(file$Gene1,file$Gene2,sep = "::")
+    file$recursive_id <- paste(file$Gene2,file$Gene1,sep = "::")
+    file$V1 <- NULL
+    file$V2 <- NULL
+    return(file)
+}))
 
 #format fusioncatcher false positive flags
 check_fc_flags <- function(fusion_description) {
@@ -432,7 +513,8 @@ format_final_out <- function(cluster_df) {
         "tx3" = fusion[["tx3"]],
         "Fusion_effect" = fusion[["Fusion_effect"]],
         "reciprocal_cluster" = fusion[["reciprocal_cluster"]],
-        "reciprocal_cluster_id" = fusion[["reciprocal_cluster_id"]]
+        "reciprocal_cluster_id" = fusion[["reciprocal_cluster_id"]],
+        "somatic_flags" = NA
     )
     return(out)
 
@@ -454,7 +536,8 @@ output_headers <- c(
     "frame_status_cl",
     "tx5",
     "tx3",
-    "Fusion_effect"
+    "Fusion_effect",
+    "somatic_flags"
 )
 cvr_output_headers <- c(
     "TumorId",
@@ -677,6 +760,17 @@ final_outputfile <- map_dfr(unique(cff$cluster), function(cluster_info) {
     return(out)
 })
 
+final_outputfile$somatic_flags <- sapply(final_outputfile$fusion, function(fusion){
+    flags <- paste(somatic_flags$somatic_flag[somatic_flags$id == fusion | somatic_flags$recursive_id == fusion] ,sep=",",collapse = ",")
+    if(flags == ""){
+        return(NA)
+    }else{
+        return(flags)
+    }
+})
+
+
+
 ## separate cis sage clusters, if in cis sage allowlist, send to final output keep cis_sage cluster if clinical gen ****************
 cis_sage_output <- final_outputfile %>% filter(
     grepl("cis_sage", cluster) &
@@ -695,7 +789,7 @@ final_outputfile_cvr <- final_outputfile %>% filter(action == "REPORT") %>% sele
                                                                                    frame_status_cl,
                                                                                    tx5,
                                                                                    tx3)
-final_outputfile_cvr <- final_outputfile_cvr %>% mutate(breakpoint = gsub("chr","",breakpoint)) %>% separate_wider_delim(fusion, "::", names = c("Gene1", "Gene2")) %>%
+final_outputfile_cvr <- final_outputfile_cvr %>% mutate(breakpoint = gsub("chr", "", breakpoint)) %>% separate_wider_delim(fusion, "::", names = c("Gene1", "Gene2")) %>%
     separate_wider_delim(breakpoint, "|", names = c("bp1", "bp2")) %>%
     separate_wider_delim(bp1, ":", names = c("Chr1", "Pos1", "Str1")) %>%
     separate_wider_delim(bp2, ":", names = c("Chr2", "Pos2", "Str2"))

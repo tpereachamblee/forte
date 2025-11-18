@@ -10,6 +10,8 @@ process FUSION_FILTER {
     input:
     tuple val(meta), path(cff), path(starfusion), path(fusioncatcher), path(arriba)
     path clinical_genes
+    path fusioncatcher_ref
+    path gtf
 
     output:
     tuple val(meta), path("*_filtered_fusions.tsv")   , emit: filtered_fusions
@@ -30,6 +32,8 @@ process FUSION_FILTER {
         --arriba ${arriba} \\
         --clinical_genes ${clinical_genes} \\
         --out_prefix ${sample} \\
+        --fc_reference_dir  ${fusioncatcher_ref} \\
+        --gtf ${gtf} \\
         ${args}
 
     cat <<-END_VERSIONS > versions.yml

@@ -57,6 +57,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#164](https://github.com/mskcc/forte/pull/164) - Allow samples with no fusions to pass through final steps of fusion pipeline
 
+- [#166](https://github.com/mskcc/forte/pull/166) - Switch AGFusion plotting mode to pdf
+
+- [#1](https://github.com/MSK-Staging/FORTE/pull/1) - Adapted pipeline for Enterprise Cloud GitHub
+
+- [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
+
+- [#5](https://github.com/MSK-Staging/FORTE/pull/5) - Add configuration for running on Iris
+
+- [#6](https://github.com/MSK-Staging/FORTE/pull/6) - remove chr prefix from chromosome if exists in provided MAF
+
+- [#7](https://github.com/MSK-Staging/FORTE/pull/7) - Fix failing nf-test previously not caught in [#1](https://github.com/MSK-Staging/FORTE/pull/1)
+
 ### `Dependencies`
 
 ### `Deprecated`

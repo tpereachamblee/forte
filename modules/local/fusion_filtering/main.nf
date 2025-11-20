@@ -11,11 +11,12 @@ process FUSION_FILTER {
     tuple val(meta), path(cff), path(starfusion), path(fusioncatcher), path(arriba)
     path clinical_genes
     path fusioncatcher_ref
-    path gtf
+    tuple val(meta2), path(gtf)
 
     output:
     tuple val(meta), path("*_filtered_fusions.tsv")   , emit: filtered_fusions
     tuple val(meta), path("*_cis_sage_fusions.tsv")   , emit: cis_sage_fusions
+    tuple val(meta), path("*_cvr.tsv")                , emit: cvr_fusions
     path "versions.yml"                               , emit: versions
 
     when:

@@ -125,7 +125,7 @@ if (length(setdiff(required_args, names(args_opt))) > 0) {
 }
 
 gtf_data <- fread(args_opt$gtf, header = FALSE, sep = "\t",
-                  col.names = c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attribute"), data.table = F)
+                col.names = c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attribute"), data.table = F)
 
 gtf_data <- gtf_data[gtf_data$feature == "gene",]
 
@@ -720,7 +720,7 @@ cff <- cff  %>% mutate(
         gene3_strand
     ),
     symbol_id = paste(reann_gene5_symbol, reann_gene3_symbol, sep =
-                          "::"),
+                        "::"),
     reciprocal_id = paste(reann_gene3_symbol, reann_gene5_symbol, sep = "::")
 ) %>% arrange(cluster) %>%
     group_by(cluster, symbol_id)  %>%  mutate(reciprocal_cluster_id = cur_group_id())

@@ -209,7 +209,7 @@
             "type": "string"
         },
         "baits": {
-            "type": "string"
+            "type": "object"
         },
         "cdna": {
             "type": "string"
@@ -233,12 +233,15 @@
             "type": "string"
         },
         "ensembl_version": {
-            "type": "string"
+            "type": "integer"
         },
         "transcript_allowlist": {
             "type": "string"
         },
         "clinical_genes": {
+            "type": "string"
+        },
+        "cis_sage_allow": {
             "type": "string"
         }
     }

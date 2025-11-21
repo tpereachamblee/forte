@@ -18,45 +18,11 @@ setDTthreads(0)
 usage <- function() {
     message("Usage:")
     message(
-        "fusion_filtering.R --cff <*.final.cff> --starfusion <*.starfusion.abridged.coding_effect.tsv> --fusioncatcher <*.fusioncatcher.fusion-genes.txt> --arriba <*.fusions.tsv> --clinical_genes <clinical_genes.txt> --out_prefix <prefix> --fc_reference_dir <fusioncatcher reference directory> --gtf <*.gtf>"
+        "fusion_filtering.R --cff <*.final.cff> --starfusion <*.starfusion.abridged.coding_effect.tsv> --fusioncatcher <*.fusioncatcher.fusion-genes.txt> --arriba <*.fusions.tsv> --clinical_genes <clinical_genes.txt> --out_prefix <prefix> --fc_reference_dir <fusioncatcher reference directory> --gtf <*.gtf> --cis_sage_allow <file with allowed cis-sage fusions> --fc_flags <false positive fusioncatcher flags comma separated> --sf_flags <false positive starfusion flags comma separated>"
     )
 }
 
 args = commandArgs(TRUE)
-
-fc_flags = c(
-    "banned",
-    "bodymap2",
-    "hpa",
-    "1000genomes",
-    "cacg",
-    "gtex",
-    "conjoing",
-    "paralogs",
-    "distance1000bp",
-    "ensembl_fully_overlapping",
-    "ensembl_same_strand_overlapping",
-    "mt",
-    "pair_pseudo_genes",
-    "refseq_fully_overlapping",
-    "refseq_same_strand_overlapping",
-    "rrna",
-    "similar_symbols",
-    "ucsc_fully_overlapping",
-    "ucsc_same_strand_overlapping"
-)
-sf_flags = c(
-    "GTEx_recurrent_StarF2019",
-    "BodyMap",
-    "DGD_PARALOGS",
-    "Greger_Normal",
-    "Babiceanu_Normal",
-    "ConjoinG"
-)
-cis_sage_allow = c("FGFR3::TACC3",
-                "TACC3::FGFR3",
-                "FGFR2::TACC2",
-                "TACC2::FGFR2")
 
 if (is.null(args) | length(args) < 1) {
     usage()
@@ -100,7 +66,10 @@ possible_args = c(
     "clinical_genes",
     "out_prefix",
     "fc_reference_dir",
-    "gtf"
+    "gtf",
+    "fc_flags",
+    "sf_flags",
+    "cis_sage_allow"
 )
 if (length(setdiff(names(args_opt), possible_args)) > 0) {
     message("Invalid options")
@@ -116,13 +85,20 @@ required_args <- c(
     "clinical_genes",
     "out_prefix",
     "fc_reference_dir",
-    "gtf"
+    "gtf",
+    "fc_flags",
+    "sf_flags",
+    "cis_sage_allow"
 )
 if (length(setdiff(required_args, names(args_opt))) > 0) {
     message("Missing required arguments")
     usage()
     quit()
 }
+
+fc_flags <- strsplit(args_opt$fc_flags, ",")[[1]]
+sf_flags <- strsplit(args_opt$sf_flags, ",")[[1]]
+cis_sage_allow = scan(args_opt$cis_sage_allow, what = 'character', quiet = TRUE,sep = "\n")
 
 gtf_data <- fread(args_opt$gtf, header = FALSE, sep = "\t",
                 col.names = c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attribute"), data.table = F)

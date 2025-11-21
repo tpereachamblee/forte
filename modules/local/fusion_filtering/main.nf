@@ -12,6 +12,7 @@ process FUSION_FILTER {
     path clinical_genes
     path fusioncatcher_ref
     tuple val(meta2), path(gtf)
+    path cis_sage_allow
 
     output:
     tuple val(meta), path("*_filtered_fusions.tsv")   , emit: filtered_fusions
@@ -35,6 +36,7 @@ process FUSION_FILTER {
         --out_prefix ${sample} \\
         --fc_reference_dir  ${fusioncatcher_ref} \\
         --gtf ${gtf} \\
+        --cis_sage_allow ${cis_sage_allow} \\
         ${args}
 
     cat <<-END_VERSIONS > versions.yml

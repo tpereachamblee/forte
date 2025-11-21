@@ -37,6 +37,7 @@ workflow FUSION {
     arriba_protein_domains
     clinical_genes
     transcript_allowlist
+    cis_sage_allow
 
     main:
     ch_versions = Channel.empty()
@@ -161,7 +162,8 @@ workflow FUSION {
             .join(ARRIBA_ARRIBA.out.fusions, by:0),
         clinical_genes,
         fusioncatcher_ref,
-        gtf
+        gtf,
+        cis_sage_allow
     )
 
     AGFUSION_CLINICAL(

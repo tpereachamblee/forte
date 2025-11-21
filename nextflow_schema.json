@@ -212,7 +212,7 @@
             "type": "string"
         },
         "baits": {
-            "type": "object"
+            "type": "string"
         },
         "cdna": {
             "type": "string"
@@ -236,7 +236,7 @@
             "type": "string"
         },
         "ensembl_version": {
-            "type": "integer"
+            "type": "string"
         },
         "transcript_allowlist": {
             "type": "string"

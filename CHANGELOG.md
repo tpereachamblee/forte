@@ -61,8 +61,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
 
+- [#5](https://github.com/MSK-Staging/FORTE/pull/5) - Add configuration for running on Iris
+
+- [#6](https://github.com/MSK-Staging/FORTE/pull/6) - remove chr prefix from chromosome if exists in provided MAF
+
 - [#7](https://github.com/MSK-Staging/FORTE/pull/7) - Fix failing nf-test previously not caught in [#1](https://github.com/MSK-Staging/FORTE/pull/1)
 
+- [#8](https://github.com/MSK-Staging/FORTE/pull/8) - Change bam compression level for primary bam alignment to 1
+ 
 - [#9](https://github.com/MSK-Staging/FORTE/pull/9) - Update nf-tests to check bams using nft-bam
 
 ### `Dependencies`

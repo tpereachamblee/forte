@@ -310,7 +310,6 @@
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt:md5,2d2eca80a68b88a8cab18f5443535510",
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt.summary:md5,5ee1121a32c35933d16d7942bf41f5dc",
                 "SAMPLE_PAIRED_END.log.txt:md5,d8921dbda2861804ae537e0b683784a3",
-                "abundance.h5:md5,bb3000c9e6b78bcef5867b6672cae064",
                 "abundance.tsv:md5,9b250678a483f9678b4c723aecd8ead0",
                 "SAMPLE_PAIRED_END.pass.junctions.bed:md5,627772a49b919129c10eeaaec9400f01",
                 "SAMPLE_PAIRED_END.pass.junctions.exon.gff3:md5,2265700615db810ff6a238d983a3d548",
@@ -334,7 +333,6 @@
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt:md5,b2612c68520c30600d8f92c22b7553fd",
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt.summary:md5,bd09f65422064c959cbebae39fbb6567",
                 "SAMPLE_PAIRED_END_UMI.log.txt:md5,7907ecf8801801d5b31aef37b5fac6d5",
-                "abundance.h5:md5,f2f43677b0c8ad7e4f3aae9a32b43435",
                 "abundance.tsv:md5,5b5258d1a95dba4cc2eb49bb6579da9a",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.bed:md5,9bd18b864a74e25a67b7676f768ef8aa",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.exon.gff3:md5,167e6024523d994923b519e8a6ad6db1",
@@ -387,6 +385,6 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-11-25T17:39:19.740963"
+        "timestamp": "2025-11-26T11:38:40.403185"
     }
 }

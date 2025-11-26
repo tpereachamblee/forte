@@ -366,7 +366,6 @@
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt:md5,9284670efa26f8fbb438871bfc2c92ff",
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt.summary:md5,dd78bcf5f17f35fc42c34a36b52a470f",
                 "SAMPLE_PAIRED_END.log.txt:md5,e90a12204a67e0637d4fcdabec401013",
-                "abundance.h5:md5,c77c854807677a146d67bc1b73661c5a",
                 "abundance.tsv:md5,661d4cbafb49814819b368361394c932",
                 "SAMPLE_PAIRED_END.pass.junctions.bed:md5,22aa3c6a230e6439bd1632a11d707a84",
                 "SAMPLE_PAIRED_END.pass.junctions.exon.gff3:md5,8c008a07f492a5c3b8b512179f1586ba",
@@ -388,7 +387,6 @@
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt:md5,b2612c68520c30600d8f92c22b7553fd",
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt.summary:md5,f0f948fb0fa6f1f365e88a7bdba69bac",
                 "SAMPLE_PAIRED_END_UMI.log.txt:md5,0d6872b39a653694e5ca4ce56d76ec3c",
-                "abundance.h5:md5,8c2088a416bcb538c5142e3824926afb",
                 "abundance.tsv:md5,f8eeb938efd4c0695e1eb31600962972",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.bed:md5,7afaaa04ea4b2a36865d4afc2cbe1cd9",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.exon.gff3:md5,e919be29bd5500e35dfd70e4eb60de68",
@@ -419,7 +417,6 @@
                 "SAMPLE_SINGLE_END.gene.featureCounts.txt:md5,1f2883a123fc47f225336ff96132aef4",
                 "SAMPLE_SINGLE_END.gene.featureCounts.txt.summary:md5,ba7764d707e5e2e49e2e7d764b64c747",
                 "SAMPLE_SINGLE_END.log.txt:md5,1e5da4815ae33b3f5ca2fbc89d80f03e",
-                "abundance.h5:md5,dbc29975f867b7caf9eb594e3dc99b6c",
                 "abundance.tsv:md5,9d2f007d0195f7ed0521067b439b0eb5",
                 "SAMPLE_SINGLE_END.pass.junctions.bed:md5,54e69ebea32fa07233860f2d4ea4fb76",
                 "SAMPLE_SINGLE_END.pass.junctions.exon.gff3:md5,1013ff995ca46474e6b8e5c9810cd1e5",
@@ -450,7 +447,7 @@
                 "versions.yml:md5,1b169aa7d0cbd48e183351f9f57569b4"
             ],
             "multiqc_general_stats.txt:md5,303e27d1526de16ed1c742aa1f30d8e1",
-            "multiqc_general_stats.txt:md5,edc41a4ddaebcde9d9f9a6f4e02899e1",
+            "multiqc_general_stats.txt:md5,8ee9ce9c208f7883d4c2fac5e425fd4b",
             2,
             7
         ],
@@ -458,6 +455,6 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-11-25T17:12:30.866549"
+        "timestamp": "2025-11-26T11:24:46.9774"
     }
 }

@@ -11,7 +11,7 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-11-03T21:47:22.949524943"
+        "timestamp": "2025-12-01T12:32:21.966314"
     },
     "Run with multiple fq per sample": {
         "content": [
@@ -294,7 +294,6 @@
                 "analysis/SAMPLE_PAIRED_END_UMI/umitools/extract/logs/SAMPLE_PAIRED_END_UMI@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_UMI_T2.umi_extract.log"
             ],
             [
-                "SAMPLE_PAIRED_END.Aligned.sortedByCoord.out.bam:md5,fa1a6d52c830f2e4e497eb306e263696",
                 "SAMPLE_PAIRED_END.Aligned.sortedByCoord.out.bam.bai:md5,bf8152c4258d9bbaeea5f2b9f3ea823b",
                 "SAMPLE_PAIRED_END.SJ.out.tab:md5,6520cdbb7af487d58c04496f2202ae0c",
                 "SAMPLE_PAIRED_END.fusions.discarded.tsv:md5,f519c32b31f24e83cf5ec5f5df36a227",
@@ -315,7 +314,6 @@
                 "SAMPLE_PAIRED_END.inner_distance_freq.txt:md5,6d2200c1a8a750449e75086ebfa33d70",
                 "SAMPLE_PAIRED_END.inner_distance_mean.txt:md5,65920fe115889a5b4a8f643cdb973c16",
                 "SAMPLE_PAIRED_END.inner_distance_plot.r:md5,b46cfdace01a550aa7521243c4606d41",
-                "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam:md5,6fbf3015c9f9eef37d3ecd9ee48ced5e",
                 "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam.bai:md5,a3f4d4acb5523601af8f82b46e4fea8d",
                 "SAMPLE_PAIRED_END_UMI.SJ.out.tab:md5,b46cb94829fc7279d447eea2b4d3f1b7",
                 "SAMPLE_PAIRED_END_UMI.fusions.discarded.tsv:md5,5caa821f01e23b99e90eb0d85c2f6018",
@@ -341,7 +339,6 @@
                 "SAMPLE_PAIRED_END_UMI.inner_distance_freq.txt:md5,a8c2c4ca49572c20074f6025a7092d03",
                 "SAMPLE_PAIRED_END_UMI.inner_distance_mean.txt:md5,d60c452f6359154ff195c6f76600ee9c",
                 "SAMPLE_PAIRED_END_UMI.inner_distance_plot.r:md5,f3692e949cb81e4530386cdffd00794b",
-                "SAMPLE_PAIRED_END_UMI.dedup.bam:md5,f1bfceb4a8f258d4901751d2f5049a3e",
                 "SAMPLE_PAIRED_END_UMI.dedup.bam.bai:md5,f3be74cda0386562116bc7f9c020bc50",
                 "SAMPLE_PAIRED_END_UMI.dedup_edit_distance.tsv:md5,9cc338b58a6fecf42e5c9ff24df54ef3",
                 "SAMPLE_PAIRED_END_UMI.dedup_per_umi.tsv:md5,e03c28b6b0e8f724bb91b3bd54dc2ba7",
@@ -378,7 +375,7 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-11-03T21:47:21.394550861"
+        "timestamp": "2025-12-01T12:32:19.910898"
     },
     "bam statistics": {
         "content": [
@@ -422,6 +419,6 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-11-03T21:47:22.276459808"
+        "timestamp": "2025-12-01T12:32:21.067479"
     }
 }

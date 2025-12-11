@@ -1,7 +1,7 @@
 {
     "Test pipeline - Should run without failures": {
         "content": [
-            57,
+            63,
             {
                 "ARRIBA_ARRIBA": {
                     "arriba": "2.4.0"
@@ -27,6 +27,9 @@
                 },
                 "KALLISTO_INDEX": {
                     "kallisto": "0.46.2"
+                },
+                "KALLISTO_QUANT": {
+                    "kallisto": "0.48.0"
                 },
                 "PICARD_COLLECTRNASEQMETRICS": {
                     "picard": "2.27.4-SNAPSHOT"
@@ -91,6 +94,11 @@
                 "analysis/SAMPLE_PAIRED_END/featurecounts",
                 "analysis/SAMPLE_PAIRED_END/featurecounts/SAMPLE_PAIRED_END.gene.featureCounts.txt",
                 "analysis/SAMPLE_PAIRED_END/featurecounts/SAMPLE_PAIRED_END.gene.featureCounts.txt.summary",
+                "analysis/SAMPLE_PAIRED_END/kallisto",
+                "analysis/SAMPLE_PAIRED_END/kallisto/SAMPLE_PAIRED_END.log.txt",
+                "analysis/SAMPLE_PAIRED_END/kallisto/abundance.h5",
+                "analysis/SAMPLE_PAIRED_END/kallisto/abundance.tsv",
+                "analysis/SAMPLE_PAIRED_END/kallisto/run_info.json",
                 "analysis/SAMPLE_PAIRED_END/multiqc",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report.html",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data",
@@ -108,11 +116,13 @@
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/fastp-seq-quality-plot_Read_2_After_filtering.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/fastp-seq-quality-plot_Read_2_Before_filtering.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/fastp_filtered_reads_plot.txt",
+                "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/kallisto_alignment.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc.log",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_citations.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_data.json",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_fastp.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_general_stats.txt",
+                "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_kallisto.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_picard_RnaSeqMetrics.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_rseqc_bam_stat.txt",
                 "analysis/SAMPLE_PAIRED_END/multiqc/dupbam_multiqc_report_data/multiqc_software_versions.txt",
@@ -168,13 +178,20 @@
                 "analysis/SAMPLE_PAIRED_END_UMI/featurecounts",
                 "analysis/SAMPLE_PAIRED_END_UMI/featurecounts/SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/featurecounts/SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt.summary",
+                "analysis/SAMPLE_PAIRED_END_UMI/kallisto",
+                "analysis/SAMPLE_PAIRED_END_UMI/kallisto/SAMPLE_PAIRED_END_UMI.log.txt",
+                "analysis/SAMPLE_PAIRED_END_UMI/kallisto/abundance.h5",
+                "analysis/SAMPLE_PAIRED_END_UMI/kallisto/abundance.tsv",
+                "analysis/SAMPLE_PAIRED_END_UMI/kallisto/run_info.json",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report.html",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data",
+                "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/kallisto_alignment.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc.log",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_citations.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_data.json",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_general_stats.txt",
+                "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_kallisto.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_picard_RnaSeqMetrics.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_rseqc_bam_stat.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/multiqc/dedupbam_multiqc_report_data/multiqc_software_versions.txt",
@@ -287,6 +304,11 @@
                 "analysis/SAMPLE_SINGLE_END/featurecounts",
                 "analysis/SAMPLE_SINGLE_END/featurecounts/SAMPLE_SINGLE_END.gene.featureCounts.txt",
                 "analysis/SAMPLE_SINGLE_END/featurecounts/SAMPLE_SINGLE_END.gene.featureCounts.txt.summary",
+                "analysis/SAMPLE_SINGLE_END/kallisto",
+                "analysis/SAMPLE_SINGLE_END/kallisto/SAMPLE_SINGLE_END.log.txt",
+                "analysis/SAMPLE_SINGLE_END/kallisto/abundance.h5",
+                "analysis/SAMPLE_SINGLE_END/kallisto/abundance.tsv",
+                "analysis/SAMPLE_SINGLE_END/kallisto/run_info.json",
                 "analysis/SAMPLE_SINGLE_END/multiqc",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report.html",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data",
@@ -297,11 +319,13 @@
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/fastp-seq-quality-plot_Read_1_After_filtering.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/fastp-seq-quality-plot_Read_1_Before_filtering.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/fastp_filtered_reads_plot.txt",
+                "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/kallisto_alignment.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc.log",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_citations.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_data.json",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_fastp.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_general_stats.txt",
+                "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_kallisto.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_picard_RnaSeqMetrics.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_rseqc_bam_stat.txt",
                 "analysis/SAMPLE_SINGLE_END/multiqc/dupbam_multiqc_report_data/multiqc_software_versions.txt",
@@ -341,6 +365,8 @@
                 "SAMPLE_PAIRED_END@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_T1_2.fastp.fastq.gz:md5,314744ed8805b87abb855c8e6b82a4f8",
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt:md5,9284670efa26f8fbb438871bfc2c92ff",
                 "SAMPLE_PAIRED_END.gene.featureCounts.txt.summary:md5,dd78bcf5f17f35fc42c34a36b52a470f",
+                "SAMPLE_PAIRED_END.log.txt:md5,ae7822b87c1aaa280cef35926fac1d4b",
+                "abundance.tsv:md5,3918c48dc0f2141a1ecc1e0dfc460023",
                 "SAMPLE_PAIRED_END.pass.junctions.bed:md5,22aa3c6a230e6439bd1632a11d707a84",
                 "SAMPLE_PAIRED_END.pass.junctions.exon.gff3:md5,8c008a07f492a5c3b8b512179f1586ba",
                 "SAMPLE_PAIRED_END.pass.junctions.intron.gff3:md5,e5a38cc36069319c5a696606013c780b",
@@ -360,6 +386,8 @@
                 "SAMPLE_PAIRED_END_UMI@SRR5665260.1.36873006@@SAMPLE_PAIRED_END_UMI_T1_2.fastp.fastq.gz:md5,882962186d3e04042b89868e70630b52",
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt:md5,b2612c68520c30600d8f92c22b7553fd",
                 "SAMPLE_PAIRED_END_UMI.gene.featureCounts.txt.summary:md5,f0f948fb0fa6f1f365e88a7bdba69bac",
+                "SAMPLE_PAIRED_END_UMI.log.txt:md5,71b83f2f18ebff55fef50c4683d92e67",
+                "abundance.tsv:md5,d36635ce02001a159f6f70813831203c",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.bed:md5,7afaaa04ea4b2a36865d4afc2cbe1cd9",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.exon.gff3:md5,e919be29bd5500e35dfd70e4eb60de68",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.intron.gff3:md5,95a2543c48a21c0c6a0eeeac62b22d03",
@@ -388,12 +416,14 @@
                 "SAMPLE_SINGLE_END@SRR5665260.1.36873006@@SAMPLE_SINGLE_END_T1.fastp.fastq.gz:md5,4d4605641f64c810e550efc464cfc1ce",
                 "SAMPLE_SINGLE_END.gene.featureCounts.txt:md5,1f2883a123fc47f225336ff96132aef4",
                 "SAMPLE_SINGLE_END.gene.featureCounts.txt.summary:md5,ba7764d707e5e2e49e2e7d764b64c747",
+                "SAMPLE_SINGLE_END.log.txt:md5,b0d19776eac906479351ba7948bb9332",
+                "abundance.tsv:md5,b79c3d431ae0379c6c24b306c7f9290d",
                 "SAMPLE_SINGLE_END.pass.junctions.bed:md5,54e69ebea32fa07233860f2d4ea4fb76",
                 "SAMPLE_SINGLE_END.pass.junctions.exon.gff3:md5,1013ff995ca46474e6b8e5c9810cd1e5",
                 "SAMPLE_SINGLE_END.pass.junctions.intron.gff3:md5,8718234af9a43e4c471fdf47582a2167",
                 "SAMPLE_SINGLE_END.pass.junctions.tab:md5,71f46082892bc8bfdce4fa1897b55613",
                 "SAMPLE_SINGLE_END.bam_stat.txt:md5,6a2e9b882a12aa5380604bf2da2e2e66",
-                "kallisto:md5,f077f8b81234cbd2e475f5cd69069517",
+                "kallisto:md5,f5601460b727246c8bb65293009f3231",
                 "versions.yml:md5,0434e31e19948a166c0c8f4e7497e806",
                 "smallGRCh37.metafusion.gene.bed:md5,4373a0ab0ee589753d29291a7cbd599d",
                 "versions.yml:md5,b10fbcb42401fdbfd5bb2077fa3b7c89",
@@ -416,8 +446,8 @@
                 "transcriptInfo.tab:md5,0c3a5adb49d15e5feff81db8e29f2e36",
                 "versions.yml:md5,1b169aa7d0cbd48e183351f9f57569b4"
             ],
-            "multiqc_general_stats.txt:md5,ed61c21a4d09e66bbbdbf0b54c18a43d",
-            "multiqc_general_stats.txt:md5,32f35a081473dd3ddb0c0255d97273d1",
+            "multiqc_general_stats.txt:md5,27b408b818d869042f37cae034adcf6a",
+            "multiqc_general_stats.txt:md5,559f8fe6c42518698a9f4c6e5526a12d",
             2,
             7
         ],
@@ -425,6 +455,6 @@
             "nf-test": "0.9.3",
             "nextflow": "24.10.5"
         },
-        "timestamp": "2025-11-03T11:22:52.082639925"
+        "timestamp": "2025-11-26T12:53:53.220248"
     }
 }

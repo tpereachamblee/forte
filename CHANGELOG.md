@@ -69,6 +69,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#8](https://github.com/MSK-Staging/FORTE/pull/8) - Change bam compression level for primary bam alignment to 1
 
+- [#14](https://github.com/MSK-Staging/FORTE/pull/14) - Enabled kallisto processing in nf-tests
+
 ### `Dependencies`
 
 ### `Deprecated`

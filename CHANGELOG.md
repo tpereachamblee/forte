@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#138](https://github.com/mskcc/forte/pull/128) - enable clinical gene expansion in agfusion
 
+- [#4](https://github.com/MSK-Staging/FORTE/pull/4) - Generate percent oncogenic isoforms from portcullis output
+
 ### `Fixed`
 
 - [#119](https://github.com/mskcc/forte/pull/119) - change script error behavior in METAFUSION_RUN process
@@ -61,13 +63,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#2](https://github.com/MSK-Staging/FORTE/pull/2) - Enabled nextflow module binaries
 
-- [#4](https://github.com/MSK-Staging/FORTE/pull/4) - Generate percent oncogenic isoforms from portcullis output
-
 - [#5](https://github.com/MSK-Staging/FORTE/pull/5) - Add configuration for running on Iris
 
 - [#6](https://github.com/MSK-Staging/FORTE/pull/6) - remove chr prefix from chromosome if exists in provided MAF
 
 - [#7](https://github.com/MSK-Staging/FORTE/pull/7) - Fix failing nf-test previously not caught in [#1](https://github.com/MSK-Staging/FORTE/pull/1)
+
+- [#8](https://github.com/MSK-Staging/FORTE/pull/8) - Change bam compression level for primary bam alignment to 1
 
 ### `Dependencies`
 

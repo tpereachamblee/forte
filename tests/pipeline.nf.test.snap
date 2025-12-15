@@ -1,7 +1,7 @@
 {
     "Test pipeline - Should run without failures": {
         "content": [
-            63,
+            66,
             {
                 "ARRIBA_ARRIBA": {
                     "arriba": "2.4.0"
@@ -459,14 +459,14 @@
                 "versions.yml:md5,1b169aa7d0cbd48e183351f9f57569b4"
             ],
             "multiqc_general_stats.txt:md5,27b408b818d869042f37cae034adcf6a",
-            "multiqc_general_stats.txt:md5,559f8fe6c42518698a9f4c6e5526a12d",
+            "multiqc_general_stats.txt:md5,ba985829b5d49f6cfc04d0797674ec35",
             2,
             7
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "24.10.5"
+            "nextflow": "25.10.0"
         },
-        "timestamp": "2025-11-26T12:53:53.220248"
+        "timestamp": "2025-12-15T14:37:44.649396295"
     }
 }

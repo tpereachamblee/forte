@@ -2,7 +2,7 @@
 # __author__      = "Alexandria Dymun"
 # __email__       = "pintoa1@mskcc.org"
 # __contributor__ = "Caryn Hale (halec@mskcc.org)"
-# __version__     = "0.0.2"
+# __version__     = "0.1.0"
 
 
 suppressPackageStartupMessages({
@@ -164,7 +164,7 @@ somatic_flags <- rbindlist(lapply(fc_reference_files,function(flag_file){
     file$Gene1 <- ifelse(!is.na(gene_mapping$gene_name[match(file$V1,gene_mapping$gene_id)]), gene_mapping$gene_name[match(file$V1,gene_mapping$gene_id)], file$V1)
     file$Gene2 <- ifelse(!is.na(gene_mapping$gene_name[match(file$V2,gene_mapping$gene_id)]), gene_mapping$gene_name[match(file$V2,gene_mapping$gene_id)], file$V2)
     file$id <- paste(file$Gene1,file$Gene2,sep = "::")
-    file$recursive_id <- paste(file$Gene2,file$Gene1,sep = "::")
+    file$reciprocal_id <- paste(file$Gene2,file$Gene1,sep = "::")
     file$V1 <- NULL
     file$V2 <- NULL
     return(file)
@@ -208,7 +208,6 @@ get_tool_code <- function(tools) {
 }
 
 # internal scoring system for agfusion frame statuses.
-# up for debate
 fusion_effect_values <- function(Fusion_effect) {
     case_when(
         Fusion_effect == "in-frame" ~ 10,
@@ -737,7 +736,7 @@ final_outputfile <- map_dfr(unique(cff$cluster), function(cluster_info) {
 })
 
 final_outputfile$somatic_flags <- sapply(final_outputfile$fusion, function(fusion){
-    flags <- paste(somatic_flags$somatic_flag[somatic_flags$id == fusion | somatic_flags$recursive_id == fusion] ,sep=",",collapse = ",")
+    flags <- paste(somatic_flags$somatic_flag[somatic_flags$id == fusion | somatic_flags$reciprocal_id == fusion] ,sep=",",collapse = ",")
     if(flags == ""){
         return(NA)
     }else{

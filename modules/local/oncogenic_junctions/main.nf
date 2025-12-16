@@ -30,7 +30,7 @@ process ONCO_JUNCS{
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         R: \$(R --version | head -n1)
-        oncogenic_junctions.R: 0.0.1
+        oncogenic_junctions.R: 0.1.0
     END_VERSIONS
     """
 }

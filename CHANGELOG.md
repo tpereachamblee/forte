@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#138](https://github.com/mskcc/forte/pull/128) - enable clinical gene expansion in agfusion
 
+- [#4](https://github.com/MSK-Staging/FORTE/pull/4) - Generate percent oncogenic isoforms from portcullis output
+
 ### `Fixed`
 
 - [#119](https://github.com/mskcc/forte/pull/119) - change script error behavior in METAFUSION_RUN process
@@ -70,6 +72,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#8](https://github.com/MSK-Staging/FORTE/pull/8) - Change bam compression level for primary bam alignment to 1
 
 - [#9](https://github.com/MSK-Staging/FORTE/pull/9) - Update nf-tests to check bams using nft-bam
+
+- [#14](https://github.com/MSK-Staging/FORTE/pull/14) - Enabled kallisto processing in nf-tests
 
 ### `Dependencies`
 

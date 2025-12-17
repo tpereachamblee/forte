@@ -214,6 +214,9 @@
         "cdna": {
             "type": "string"
         },
+        "arriba_cytobands": {
+            "type": "string"
+        },
         "arriba_blacklist": {
             "type": "string"
         },

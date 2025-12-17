@@ -457,15 +457,13 @@
                 "sjdbList.out.tab:md5,9e4f991abbbfeb3935a2bb21b9e258f1",
                 "transcriptInfo.tab:md5,0c3a5adb49d15e5feff81db8e29f2e36",
                 "versions.yml:md5,1b169aa7d0cbd48e183351f9f57569b4"
-            ],
-            2,
-            7
+            ]
         ],
         "meta": {
             "nf-test": "0.9.3",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-16T21:28:39.232857852"
+        "timestamp": "2025-12-16T22:09:42.379570414"
     },
     "Gen Stats": {
         "content": [
@@ -478,6 +476,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-16T21:28:40.056835743"
+        "timestamp": "2025-12-16T22:09:43.063133075"
     }
 }

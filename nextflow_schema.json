@@ -109,6 +109,12 @@
             "type": "integer",
             "default": 1
         },
+        "fusviz_chromosomes": {
+            "type": "string",
+            "format": "file-path",
+            "description": "Path to FusViz chromosomes file (automatically set based on genome)",
+            "hidden": true
+        },
         "rseqc_modules": {
             "type": "string",
             "default": "bam_stat,inner_distance,infer_experiment,junction_annotation,junction_saturation,read_distribution,read_duplication"

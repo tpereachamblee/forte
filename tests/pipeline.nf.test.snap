@@ -457,16 +457,25 @@
                 "sjdbList.out.tab:md5,9e4f991abbbfeb3935a2bb21b9e258f1",
                 "transcriptInfo.tab:md5,0c3a5adb49d15e5feff81db8e29f2e36",
                 "versions.yml:md5,1b169aa7d0cbd48e183351f9f57569b4"
-            ],
-            "multiqc_general_stats.txt:md5,27b408b818d869042f37cae034adcf6a",
-            "multiqc_general_stats.txt:md5,559f8fe6c42518698a9f4c6e5526a12d",
-            2,
-            7
+            ]
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "25.10.0"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-18T09:52:36.55753631"
+        "timestamp": "2025-12-16T22:09:42.379570414"
+    },
+    "Gen Stats": {
+        "content": [
+            1,
+            10,
+            6,
+            21
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2025-12-16T22:09:43.063133075"
     }
 }

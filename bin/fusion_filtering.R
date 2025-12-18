@@ -563,6 +563,8 @@ cvr_output_headers <- c(
     "Significance"
 )
 
+iannotatesv_input_headers <- c("chr1", "pos1", "str1", "chr2", "pos2", "str2", "id1", "id2")
+iannotatesv_canoncicalTranscripts_headers <- c("gene", "transcript", "id")
 if (nrow(cff) == 0) {
     final_outputfile <- data.frame(matrix(nrow = 0, ncol = length(output_headers)))
     colnames(final_outputfile) <- output_headers
@@ -570,6 +572,16 @@ if (nrow(cff) == 0) {
     colnames(final_outputfile_cvr) <- cvr_output_headers
     cis_sage_output <- data.frame(matrix(nrow = 0, ncol = length(output_headers)))
     colnames(cis_sage_output) <- output_headers
+    iannotatesv_input <- data.frame(matrix(
+        nrow = 0,
+        ncol = length(iannotatesv_input_headers)
+    ))
+    colnames(iannotatesv_input) <- iannotatesv_input_headers
+    iannotatesv_canoncicalTranscripts <- data.frame(matrix(
+        nrow = 0,
+        ncol = length(iannotatesv_canoncicalTranscripts_headers)
+    ))
+    colnames(iannotatesv_canoncicalTranscripts) <- iannotatesv_canoncicalTranscripts_headers
 
     write.table(
         final_outputfile_cvr,
@@ -589,6 +601,25 @@ if (nrow(cff) == 0) {
     write.table(
         cis_sage_output,
         file = paste0(args_opt$out_prefix, "_cis_sage_fusions.tsv"),
+        quote = F,
+        row.names = F,
+        sep = "\t"
+    )
+
+    write.table(
+        iannotatesv_input,
+        file = paste0(args_opt$out_prefix, "_iannotatesv_input.tsv"),
+        quote = F,
+        row.names = F,
+        sep = "\t"
+    )
+
+    write.table(
+        iannotatesv_canoncicalTranscripts,
+        file = paste0(
+            args_opt$out_prefix,
+            "_iannotatesv_canoncicalTranscripts.tsv"
+        ),
         quote = F,
         row.names = F,
         sep = "\t"
@@ -815,6 +846,33 @@ add_these <- setdiff(cvr_output_headers, colnames(final_outputfile_cvr))
 final_outputfile_cvr[, add_these] <- NA
 final_outputfile_cvr <- final_outputfile_cvr[, cvr_output_headers]
 
+iannotatesv_input <- final_outputfile %>% mutate(breakpoint =  gsub("chr", "", breakpoint)) %>% separate(
+    breakpoint,
+    into = c("chr1", "pos1", "str1", "chr2", "pos2", "str2"),
+    sep = "[:=|]"
+) %>% mutate(
+    str1 = ifelse(str1 == "+", 0, ifelse(str1 == "-", 1, 0)),
+    str2 = ifelse(str2 == "+", 0, ifelse(str1 == "-", 1, 0)),
+    id1 = paste0(row_number(), ".", "1"),
+    id2 = paste0(row_number(), ".", "2")
+)
+
+iannotatesv_canoncicalTranscripts <- iannotatesv_input %>% separate(fusion, into = c("gene5", "gene3"), sep = "::") %>%
+    select(gene5, gene3, tx5, tx3, id1, id2) %>%
+    mutate(
+        gene5tx5 = paste(gene5, tx5, id1, sep = ":"),
+        gene3tx3 = paste(gene3, tx3, id2, sep = ":")
+    ) %>%
+    pivot_longer(
+        cols = c("gene5tx5", "gene3tx3"),
+        names_to = "type",
+        values_to = "value"
+    ) %>% select(value) %>% separate(value,
+                                     into = c("gene", "transcript", "id"),
+                                     sep = ":")
+
+iannotatesv_input <- iannotatesv_input[, iannotatesv_input_headers]
+
 write.table(
     final_outputfile,
     file = paste0(args_opt$out_prefix, "_filtered_fusions.tsv"),
@@ -834,6 +892,24 @@ write.table(
 write.table(
     cis_sage_output,
     file = paste0(args_opt$out_prefix, "_cis_sage_fusions.tsv"),
+    quote = F,
+    row.names = F,
+    sep = "\t"
+)
+write.table(
+    iannotatesv_input,
+    file = paste0(args_opt$out_prefix, "_iannotatesv_input.tsv"),
+    quote = F,
+    row.names = F,
+    sep = "\t"
+)
+
+write.table(
+    iannotatesv_canoncicalTranscripts,
+    file = paste0(
+        args_opt$out_prefix,
+        "_iannotatesv_canoncicalTranscripts.tsv"
+    ),
     quote = F,
     row.names = F,
     sep = "\t"

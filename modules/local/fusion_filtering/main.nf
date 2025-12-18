@@ -15,10 +15,12 @@ process FUSION_FILTER {
     path cis_sage_allow
 
     output:
-    tuple val(meta), path("*_filtered_fusions.tsv")   , emit: filtered_fusions
-    tuple val(meta), path("*_cis_sage_fusions.tsv")   , emit: cis_sage_fusions
-    tuple val(meta), path("*_cvr.tsv")                , emit: cvr_fusions
-    path "versions.yml"                               , emit: versions
+    tuple val(meta), path("*_filtered_fusions.tsv")                  , emit: filtered_fusions
+    tuple val(meta), path("*_cis_sage_fusions.tsv")                  , emit: cis_sage_fusions
+    tuple val(meta), path("*_cvr.tsv")                               , emit: cvr_fusions
+    tuple val(meta), path("*_iannotatesv_input.tsv")                 , emit: iannotatesv_input
+    tuple val(meta), path("*_iannotatesv_canoncicalTranscripts.tsv") , emit: iannotatesv_candidates
+    path "versions.yml"                                              , emit: versions
 
     when:
     task.ext.when == null || task.ext.when

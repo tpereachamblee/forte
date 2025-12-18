@@ -241,6 +241,9 @@
         "clinical_genes": {
             "type": "string"
         },
+        "reportable_junctions": {
+            "type": "string"
+        },
         "cis_sage_allow": {
             "type": "string"
         }

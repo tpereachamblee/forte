@@ -18,7 +18,7 @@ process ARRIBA_DOWNLOAD {
     task.ext.when == null || task.ext.when
 
     script:
-    prefix = task.ext.prefix ?: "hg38"
+    prefix = task.ext.prefix ?: "hg37"
 
     """
     wget https://github.com/suhrig/arriba/releases/download/v2.3.0/arriba_v2.3.0.tar.gz -O arriba_v2.3.0.tar.gz

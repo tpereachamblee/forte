@@ -16,25 +16,25 @@ nextflow_process {
                 // Create dummy input files for stub test
                 def tsv_file = file("dummy_fusions.tsv")
                 tsv_file.text = "gene1\\tgene2\\tchr1\\tchr2\\tpos1\\tpos2"
-                
+
                 def bam_file = file("dummy.bam")
                 bam_file.text = "dummy"
-                
+
                 def bai_file = file("dummy.bam.bai")
                 bai_file.text = "dummy"
-                
+
                 def cytobands_file = file("dummy_cytobands.txt")
                 cytobands_file.text = "chr1\\t0\\t1000\\tp36.33\\tgneg"
-                
+
                 def gtf_file = file("dummy_annotation.gtf")
                 gtf_file.text = "chr1\\ttest\\tgene\\t1\\t1000\\t.\\t+\\t.\\tgene_id \\"test\\""
-                
+
                 def chromosomes_file = file("dummy_chromosomes.txt")
                 chromosomes_file.text = "chr1\\t249250621"
-                
+
                 def domains_file = file("dummy_domains.txt")
                 domains_file.text = "gene1\\tPF00001\\t1\\t100"
-                
+
                 input[0] = [
                     [ id:'test' ],
                     tsv_file,

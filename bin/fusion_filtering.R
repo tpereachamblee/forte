@@ -868,8 +868,8 @@ iannotatesv_canoncicalTranscripts <- iannotatesv_input %>% separate(fusion, into
         names_to = "type",
         values_to = "value"
     ) %>% select(value) %>% separate(value,
-                                     into = c("gene", "transcript", "id"),
-                                     sep = ":")
+                                    into = c("gene", "transcript", "id"),
+                                    sep = ":")
 
 iannotatesv_input <- iannotatesv_input[, iannotatesv_input_headers]
 

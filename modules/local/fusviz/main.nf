@@ -8,7 +8,7 @@ process FUSVIZ {
         'docker.io/blancojmskcc/target_fusviz:7.4.0' }"
 
     input:
-    tuple val(meta), path(tsv), path(bam), path(bai)
+    tuple val(meta), path(bam), path(bai), path(tsv)
     path(cytobands)
     path(annotation)
     path(chromosomes)
@@ -46,7 +46,7 @@ process FUSVIZ {
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
     touch ${prefix}_FusViz.pdf
-    
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         fusviz: \$(echo \$(FusViz --version 2>&1) | sed 's/^.*FusViz //;  s/ .*\$//')

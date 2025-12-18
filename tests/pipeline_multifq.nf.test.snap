@@ -1,7 +1,7 @@
 {
     "Run with multiple fq per sample": {
         "content": [
-            52,
+            54,
             {
                 "ARRIBA_ARRIBA": {
                     "arriba": "2.4.0"
@@ -153,6 +153,8 @@
                 "analysis/SAMPLE_PAIRED_END/portcullis/SAMPLE_PAIRED_END.pass.junctions.intron.gff3",
                 "analysis/SAMPLE_PAIRED_END/portcullis/SAMPLE_PAIRED_END.pass.junctions.tab",
                 "analysis/SAMPLE_PAIRED_END/portcullis/SAMPLE_PAIRED_END.portcullis.log",
+                "analysis/SAMPLE_PAIRED_END/portcullis/SAMPLE_PAIRED_END_oncogenic_isoforms.txt",
+                "analysis/SAMPLE_PAIRED_END/portcullis/SAMPLE_PAIRED_END_oncogenic_isoforms_dropped.txt",
                 "analysis/SAMPLE_PAIRED_END/portcullis/intermediates",
                 "analysis/SAMPLE_PAIRED_END/rseqc",
                 "analysis/SAMPLE_PAIRED_END/rseqc/dup",
@@ -267,6 +269,8 @@
                 "analysis/SAMPLE_PAIRED_END_UMI/portcullis/SAMPLE_PAIRED_END_UMI.pass.junctions.intron.gff3",
                 "analysis/SAMPLE_PAIRED_END_UMI/portcullis/SAMPLE_PAIRED_END_UMI.pass.junctions.tab",
                 "analysis/SAMPLE_PAIRED_END_UMI/portcullis/SAMPLE_PAIRED_END_UMI.portcullis.log",
+                "analysis/SAMPLE_PAIRED_END_UMI/portcullis/SAMPLE_PAIRED_END_UMI_oncogenic_isoforms.txt",
+                "analysis/SAMPLE_PAIRED_END_UMI/portcullis/SAMPLE_PAIRED_END_UMI_oncogenic_isoforms_dropped.txt",
                 "analysis/SAMPLE_PAIRED_END_UMI/portcullis/intermediates",
                 "analysis/SAMPLE_PAIRED_END_UMI/rseqc",
                 "analysis/SAMPLE_PAIRED_END_UMI/rseqc/dedup",
@@ -315,6 +319,8 @@
                 "SAMPLE_PAIRED_END.pass.junctions.exon.gff3:md5,2265700615db810ff6a238d983a3d548",
                 "SAMPLE_PAIRED_END.pass.junctions.intron.gff3:md5,9d61e1a25d5c58894e704a680f40435e",
                 "SAMPLE_PAIRED_END.pass.junctions.tab:md5,4a772039ecd84cf90adf43a84b88975a",
+                "SAMPLE_PAIRED_END_oncogenic_isoforms.txt:md5,94563e53f5178acd508954d748b9dd16",
+                "SAMPLE_PAIRED_END_oncogenic_isoforms_dropped.txt:md5,d795d0d30660fad7825c110bfd8b16ce",
                 "SAMPLE_PAIRED_END.bam_stat.txt:md5,a70988bef13d71021751b5b101631b10",
                 "SAMPLE_PAIRED_END.inner_distance.txt:md5,42ea9ca9d8535a7bc26d08760289d0cb",
                 "SAMPLE_PAIRED_END.inner_distance_freq.txt:md5,6d2200c1a8a750449e75086ebfa33d70",
@@ -338,6 +344,8 @@
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.exon.gff3:md5,167e6024523d994923b519e8a6ad6db1",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.intron.gff3:md5,216e0ecb871a70cab587a642b393cc64",
                 "SAMPLE_PAIRED_END_UMI.pass.junctions.tab:md5,ff9f6b7e448a664c1749cf603a81aa8e",
+                "SAMPLE_PAIRED_END_UMI_oncogenic_isoforms.txt:md5,94563e53f5178acd508954d748b9dd16",
+                "SAMPLE_PAIRED_END_UMI_oncogenic_isoforms_dropped.txt:md5,daffc3f632176da77ce8496d570c0d32",
                 "SAMPLE_PAIRED_END_UMI.bam_stat.txt:md5,a67f37c712f412c0cad89ca52f0cabbe",
                 "SAMPLE_PAIRED_END_UMI.inner_distance.txt:md5,04c3276d4b4ec4d72061c47145fb9c3b",
                 "SAMPLE_PAIRED_END_UMI.inner_distance_freq.txt:md5,b97fee5122897c644533a250bb4b14d2",
@@ -385,6 +393,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.0"
         },
-        "timestamp": "2025-12-15T14:05:59.202916911"
+        "timestamp": "2025-12-18T10:20:55.102128772"
     }
 }

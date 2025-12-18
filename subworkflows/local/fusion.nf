@@ -194,7 +194,7 @@ workflow FUSION {
     //
     // MODULE: Run FusViz
     //
-    FUSVIZ(ch_fusviz_input, arriba_protein_domains, params.fusviz_chromosomes, arriba_cytobands, gtf)
+    FUSVIZ(ch_fusviz_input, arriba_cytobands, gtf, file(params.fusviz_chromosomes), arriba_protein_domains)
     ch_versions = ch_versions.mix(FUSVIZ.out.versions)
     ch_fusviz_pdf = FUSVIZ.out.pdf
 

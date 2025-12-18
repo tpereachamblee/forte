@@ -190,6 +190,7 @@ workflow FUSION {
     ch_fusviz_input = bam
         .join(bai)
         .join(FUSION_FILTER.out.filtered_fusions, remainder: true)
+        .filter{ meta, bam, bai, tsv -> tsv != null }
 
     //
     // MODULE: Run FusViz

@@ -3,8 +3,8 @@ process FUSVIZ {
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://hub.docker.com/repository/docker/blancojmskcc/target_fusviz/tags/7.4.0':
+    container "${ workflow.containerEngine == 'singularity' ?
+        'docker://blancojmskcc/target_fusviz:7.4.0':
         'blancojmskcc/target_fusviz:7.4.0' }"
 
     input:

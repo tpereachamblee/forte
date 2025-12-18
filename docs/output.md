@@ -176,10 +176,14 @@ FORTE uses a custom fork of [Metafusion](https://github.com/mskcc/MetaFusion) to
   - `portcullis_filtered.pass.junctions.tab`
   - `portcullis_filtered.pass.junctions.exon.gff3`
   - `portcullis_filtered.pass.junctions.intron.gff3`
+  - `*_oncogenic_isoforms.txt`
+  - `*_oncogenic_isoforms_dropped.txt`
 
 </details>
 
 [Portcullis](https://portcullis.readthedocs.io/en/latest/) analyzes and quantifies splice junctions from a BAM file.
+
+FORTE uses a custom script to calculate the percentage of oncogenic isoforms found from Potcullis for EGFR, ARv7 and MET exon14 deletion. These oncogenic isoforms include deletion of EGFR exons 2 through 7, deletion of EGFR exons 14 and 15, AR variant 7 novel transcript which involves splicing of exon 3 to a cryptic exon 3 and MET exon 14 skipping.
 
 ### QC
 

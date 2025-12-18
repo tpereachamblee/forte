@@ -75,6 +75,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#14](https://github.com/MSK-Staging/FORTE/pull/14) - Enabled kallisto processing in nf-tests
 
+- [#19](https://github.com/MSK-Staging/FORTE/pull/19) - Update multiqc general stats table assertion in nf-test
+
 ### `Dependencies`
 
 ### `Deprecated`

@@ -12,8 +12,8 @@ include { CAT_CAT as MERGE_CFF                } from '../../modules/nf-core/cat/
 include { METAFUSION_RUN                      } from '../../modules/local/metafusion/run/main'
 include { ADD_FLAG                            } from '../../modules/local/add_flags/main'
 include { CFF_ANNOTATE as CFF_FINALIZE        } from '../../modules/local/cff_annotate/main'
-include { CFF_ANNOTATE as ADD_FLAG_AGFUSION   } from  '../../modules/local/cff_annotate/main'
-include { FUSION_FILTER                       } from  '../../modules/local/fusion_filtering/main'
+include { CFF_ANNOTATE as ADD_FLAG_AGFUSION   } from '../../modules/local/cff_annotate/main'
+include { FUSION_FILTER                       } from '../../modules/local/fusion_filtering/main'
 include { FUSVIZ                              } from '../../modules/local/fusviz/main'
 
 

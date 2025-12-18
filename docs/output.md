@@ -15,6 +15,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
 - [Quantification](#quantification)
 - [Fusion Calling](#fusion-calling)
 - [Fusion Merging and Annotation](#fusion-merging-and-annotation)
+- [Fusion Visualization](#fusion-visualization)
 - [Splicing](#splicing)
 - [QC](#qc)
 - [Fillouts](#fillouts)
@@ -179,6 +180,18 @@ FORTE uses a custom fork of [Metafusion](https://github.com/mskcc/MetaFusion) to
 `*_filtered_fusions_cvr.tsv` is filtered to fusions with the REPORT action from `*_filtered_fusions.tsv`. This file follows designations from the annotation script which will be described in detail later. This file is a placeholder for upload to CVR while we work on the annotation script.
 
 [FusionAnnotator.py from the oncokb-annotator](https://github.com/oncokb/oncokb-annotator/blob/master/FusionAnnotator.py) is also run and added to the final cff file.
+
+### Fusion Visualization
+
+<details markdown="1">
+<summary>Output files</summary>
+
+- `analysis/<sample>/fusviz/`
+  - `<sample>_FusViz.pdf`
+
+</details>
+
+[FusViz](https://hub.docker.com/repository/docker/blancojmskcc/target_fusviz) is a Pythonic FUSion VIsualiZation tool, built and tailored for MSK-TARGET panel data. It generates PDF visualizations of detected gene fusions, showing the fusion breakpoints, gene structures, and supporting read alignments. The visualization includes cytoband information, chromosome context, and protein domain annotations to aid in the interpretation of fusion events.
 
 ### Splicing
 

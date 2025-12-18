@@ -28,8 +28,9 @@
 2. Alignment
 3. Transcript quantification
 4. Fusion calling and annotation
-5. FASTQ and BAM QC
-6. Fillouts
+5. Fusion visualization
+6. FASTQ and BAM QC
+7. Fillouts
 
 ## Usage
 

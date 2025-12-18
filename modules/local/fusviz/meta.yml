@@ -81,6 +81,6 @@ output:
         description: File containing software versions
         pattern: "versions.yml"
 authors:
-  - "@blancoj_mskcc <blancoj@mskcc.org>"
+  - "@blancoj_mskcc <blancoj@mskcc.org> - Blanco Heredia, Juan"
 maintainers:
-  - "@blancoj_mskcc <blancoj@mskcc.org>"
+  - "@blancoj_mskcc <blancoj@mskcc.org> - Blanco Heredia, Juan"

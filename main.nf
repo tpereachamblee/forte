@@ -32,6 +32,7 @@ params.ensembl_version        = getGenomeAttribute('ensembl_version')
 params.transcript_allowlist   = getGenomeAttribute('transcript_allowlist')
 params.clinical_genes         = getGenomeAttribute('clinical_genes')
 params.reportable_junctions   = getGenomeAttribute('reportable_junctions')
+params.cis_sage_allow         = getGenomeAttribute('cis_sage_allow')
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

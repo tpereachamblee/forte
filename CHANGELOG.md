@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#138](https://github.com/mskcc/forte/pull/128) - enable clinical gene expansion in agfusion
 
+- [#13](https://github.com/MSK-Staging/FORTE/pull/13) - enable final fusion filtering, identify optimal breakpoints per cluster, add somatic flags
+
 - [#4](https://github.com/MSK-Staging/FORTE/pull/4) - Generate percent oncogenic isoforms from portcullis output
 
 ### `Fixed`

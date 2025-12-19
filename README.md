@@ -69,8 +69,9 @@ mskcc/forte was originally written by Anne Marie Noronha <noronhaa@mskcc.org>.
 We thank the following people for their extensive assistance in the development of this pipeline:
 
 - Allison Richards <richara4@mskcc.org>
-- Alexandria Pinto <pintoa1@mskcc.org>
+- Alexandria Dymun <pintoa1@mskcc.org>
 - Yixiao Gong <gongy@mskcc.org>
+- Caryn Hale <halec@mskcc.org>
 
 We also thank the following contributors:
 

@@ -49,6 +49,7 @@ sf_flags = c(
     "GTEx_recurrent_StarF2019",
     "BodyMap",
     "DGD_PARALOGS",
+    "HGNC_GENEFAM",
     "Greger_Normal",
     "Babiceanu_Normal",
     "ConjoinG"

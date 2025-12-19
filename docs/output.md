@@ -180,7 +180,7 @@ FORTE uses a custom fork of [Metafusion](https://github.com/mskcc/MetaFusion) to
 
 `*_filtered_fusions_cvr.tsv` is filtered to fusions with the REPORT action from `*_filtered_fusions.tsv`. This file follows designations from the annotation script which will be described in detail later. This file is a placeholder for upload to CVR while we work on the annotation script.
 
-`*_iannotatesv_canoncicalTranscripts.tsv` and `*_iannotatesv_input.tsv` are inputs into [iAnnotateSV:msk-target branch](https://github.com/rhshah/iAnnotateSV/tree/msk-target). See iAnntateSV-msktarget readme for more information. 
+`*_iannotatesv_canoncicalTranscripts.tsv` and `*_iannotatesv_input.tsv` are inputs into [iAnnotateSV:msk-target branch](https://github.com/rhshah/iAnnotateSV/tree/msk-target). See iAnntateSV-msktarget readme for more information.
 
 [FusionAnnotator.py from the oncokb-annotator](https://github.com/oncokb/oncokb-annotator/blob/master/FusionAnnotator.py) is also run and added to the final cff file.
 

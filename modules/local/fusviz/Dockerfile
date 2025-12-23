@@ -1,64 +1,23 @@
-############################# BASE IMAGE ############################
+############################### BASE IMAGE ##############################
 
-FROM python:3.12.2
+FROM mambaorg/micromamba:1.5.10-noble
 
-############################## METADATA #############################
+################################ METADATA ###############################
 
-LABEL author="Juan Blanco Heredia <blancoj@mskcc.org>"
+LABEL software="https://wave.seqera.io/view/builds/bd-a362820400bae0f9_1"
 
-LABEL version="7.4.0"
+############################## INSTALLATION #############################
 
-LABEL software="FusViz"
+COPY --chown=$MAMBA_USER:$MAMBA_USER conda.yml /tmp/conda.yml
 
-############################ INSTALLATION ###########################
+RUN micromamba install -y -n base -f /tmp/conda.yml \
+    && micromamba install -y -n base conda-forge::procps-ng \
+    && micromamba env export --name base --explicit > environment.lock \
+    && echo ">> CONDA_LOCK_START" \
+    && cat environment.lock \
+    && echo "<< CONDA_LOCK_END" \
+    && micromamba clean -a -y
 
-ARG DEBIAN_FRONTEND=noninteractive
+USER root
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    time \
-    procps \
-    samtools \
-    libssl-dev \
-    zlib1g-dev \
-    libbz2-dev \
-    ghostscript \
-    liblzma-dev \
-    poppler-utils \
-    build-essential \
-    fonts-dejavu-core \
-    libcurl4-openssl-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1 \
-    PYTHONUNBUFFERED=1 \
-    MPLBACKEND=Agg
-
-RUN pip install --upgrade pip setuptools wheel && \
-    pip install --no-cache-dir \
-        numpy==1.26.4 \
-        pandas==2.2.3 \
-        pysam==0.22.1 \
-        argparse==1.1  \
-        pyranges==0.1.4 \
-        pycirclize==1.7.1 \
-        pdf2image==1.17.0 \
-        matplotlib==3.10.0
-
-ENV MPLCONFIGDIR=/tmp/matplotlib
-
-ENV MPLBACKEND=Agg
-
-RUN mkdir -p /tmp/matplotlib && chmod 777 /tmp/matplotlib
-
-WORKDIR /usr/local/bin/
-
-COPY FusViz_v7.4.0.py /usr/local/bin/
-
-RUN chmod 775 /usr/local/bin/FusViz_v7.4.0.py
-
-RUN ln -s /usr/local/bin/FusViz_v7.4.0.py /usr/local/bin/FusViz
-
-WORKDIR /data
-
-CMD ["/bin/bash"]
+ENV PATH="$MAMBA_ROOT_PREFIX/bin:$PATH"

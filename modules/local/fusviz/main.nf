@@ -4,8 +4,8 @@ process FUSVIZ {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' ?
-        'docker://community.wave.seqera.io/library/pyranges_pysam_matplotlib_numpy_pruned:a362820400bae0f9':
-        'community.wave.seqera.io/library/pyranges_pysam_matplotlib_numpy_pruned:a362820400bae0f9' }"
+        'docker://blancojmskcc/target_fusviz:7.4.0':
+        'blancojmskcc/target_fusviz:7.4.0' }"
 
     input:
     tuple val(meta), path(bam), path(bai), path(tsv)
@@ -25,7 +25,7 @@ process FUSVIZ {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    FusViz_v7.4.0.py \\
+    FusViz \\
         --fusions=${tsv} \\
         --alignments=${bam} \\
         --cytobands=${cytobands} \\
@@ -37,7 +37,7 @@ process FUSVIZ {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        fusviz: \$(echo \$(FusViz_v7.4.0.py --version 2>&1) | sed 's/^.*FusViz //;  s/ .*\$//')
+        fusviz: \$(echo \$(FusViz --version 2>&1) | sed 's/^.*FusViz //;  s/ .*\$//')
     END_VERSIONS
     """
 

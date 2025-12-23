@@ -2283,9 +2283,9 @@ def plot_protein_structure_to_axis(fusions_norm, annotation, protein_domains, ar
             'out-of-frame': "Out-of-Frame fusion"
         }.get(fusion_data['reading_frame'], "Reading frame unclear")
         ax.text( 0.0, info_y - 0.23,  f'{reading_frame}:', ha='left', va='center', fontsize=10, fontweight='bold', color='#2A2A2A')
-        ax.text( 0.0, info_y - 0.31, rf'• Split Read Coverage for $\mathit{{{gene_left}}}$:  {max_split_cov_left}',  ha='left', va='center', fontsize=9, color='#2A2A2A' )
-        ax.text( 0.0, info_y - 0.39, rf'• Split Read Coverage for $\mathit{{{gene_right}}}$: {max_split_cov_right}', ha='left', va='center', fontsize=9, color='#2A2A2A' )
-        ax.text( 0.0, info_y - 0.47,  f'• Total Supporting Reads: {total_suport}', ha='left', va='center', fontsize=10, color='#2A2A2A')
+        ax.text( 0.0, info_y - 0.31, ' Split Read Coverage for $\\mathit{' + f'{gene_left}' + '}$:  ' + f'{max_split_cov_left}',  ha='left', va='center', fontsize=9, color='#2A2A2A' )
+        ax.text( 0.0, info_y - 0.39, ' Split Read Coverage for $\\mathit{' + f'{gene_right}' + '}$: ' + f'{max_split_cov_right}', ha='left', va='center', fontsize=9, color='#2A2A2A' )
+        ax.text( 0.0, info_y - 0.47,  f' Total Supporting Reads: {total_suport}', ha='left', va='center', fontsize=10, color='#2A2A2A')
         if somatic_flags == '.':
             ax.text( 0.25, info_y - 0.23,  f'Fusion Not Previously Reported', ha='left', va='center', fontsize=10, fontweight='bold', color='#2A2A2A')
         elif somatic_flags != '0':
@@ -2760,14 +2760,14 @@ def get_functional_prediction_summary(status, confidence, explanation, explanati
         explanation
     ]
     if explanations or is_non_coding or (gene1 and tx1) or (gene2 and tx2):
-        summary_lines.append("Functional Notes:")
+        summary_lines.append('Functional Notes:')
         if is_non_coding:
-            summary_lines.append("• Non-coding RNA fusion")
+            summary_lines.append('Non-coding RNA fusion')
         if gene1 and tx1:
-            summary_lines.append(rf"• Gene: $\mathit{{{gene1}}}$ Transcript: {tx1}")
+            summary_lines.append('Gene: $\\mathit{' + f'{gene1}' + '}$ Transcript: ' + f'{tx1}')
         if gene2 and tx2:
-            summary_lines.append(rf"• Gene: $\mathit{{{gene2}}}$ Transcript: {tx2}")
-        for exp in explanations[:3]:
+            summary_lines.append('Gene: $\\mathit{' + f'{gene2}' + '}$ Transcript: ' + f'{tx2}')
+        for exp in explanations:
             summary_lines.append(f"• {exp}")
     return summary_lines
 

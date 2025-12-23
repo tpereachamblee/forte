@@ -25,7 +25,7 @@ process FUSVIZ {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    FusViz \\
+    FusViz_v7.4.0.py \\
         --fusions=${tsv} \\
         --alignments=${bam} \\
         --cytobands=${cytobands} \\
@@ -37,7 +37,7 @@ process FUSVIZ {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        fusviz: \$(echo \$(FusViz --version 2>&1) | sed 's/^.*FusViz //;  s/ .*\$//')
+        fusviz: \$(echo \$(FusViz_v7.4.0.py --version 2>&1) | sed 's/^.*FusViz //;  s/ .*\$//')
     END_VERSIONS
     """
 

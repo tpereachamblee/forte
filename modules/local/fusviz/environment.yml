@@ -4,14 +4,13 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
+  - bioconda::argparse=1.4.0
   - bioconda::pyranges=0.1.4
   - bioconda::pysam=0.22.1
+  - bioconda::samtools=1.20
   - conda-forge::matplotlib=3.10.0
   - conda-forge::numpy=1.26.4
   - conda-forge::pandas=2.2.3
-  - conda-forge::python=3.12.2
-  - pip
-  - pip:
-      - argparse==1.1
-      - pdf2image==1.17.0
-      - pyCirclize==1.7.1
+  - conda-forge::pdf2image=1.17.0
+  - conda-forge::pycirclize=1.7.1
+  - conda-forge::python=3.12.1

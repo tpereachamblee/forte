@@ -4,8 +4,8 @@ process FUSVIZ {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' ?
-        'docker://blancojmskcc/target_fusviz:7.4.0':
-        'blancojmskcc/target_fusviz:7.4.0' }"
+        'docker://community.wave.seqera.io/library/pyranges_pysam_matplotlib_numpy_pruned:a362820400bae0f9':
+        'community.wave.seqera.io/library/pyranges_pysam_matplotlib_numpy_pruned:a362820400bae0f9' }"
 
     input:
     tuple val(meta), path(bam), path(bai), path(tsv)

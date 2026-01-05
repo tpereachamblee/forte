@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "fusviz"
+description: "MSK-TARGET FUSion VIsualiZation tool"
+keywords:
+  - rna
+  - fusions
+  - genomics
+  - msk-target
+  - visualization
+tools:
+  - "fusviz":
+      description: "Pythonic FUSion VIsualiZation tool, built and tailored for MSK-TARGET panel data"
+      homepage: ""
+      documentation: ""
+      tool_dev_url: ""
+      doi: ""
+      licence: ["MIT"]
+      identifier: ""
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1', single_end:false ]`
+    - tsv:
+        type: file
+        description: Filtered fusions input file
+        pattern: "*.{tsv}"
+        ontologies:
+          - edam: "http://edamontology.org/format_3475"
+    - bam:
+        type: file
+        description: Sorted BAM file
+        pattern: "*.{bam,cram,sam}"
+        ontologies:
+          - edam: "http://edamontology.org/format_2572"
+    - bai:
+        type: file
+        description: BAM index file
+        pattern: "*.{bai}"
+        ontologies:
+          - edam: "http://edamontology.org/format_1412"
+  - - cytobands:
+        type: file
+        description: Cytobands file
+        pattern: "*.{tsv}"
+        ontologies:
+          - edam: "http://edamontology.org/format_3475"
+  - - annotation:
+        type: file
+        description: Annotations file
+        pattern: "*.{gtf}"
+        ontologies:
+          - edam: "http://edamontology.org/format_2306"
+  - - chromosomes:
+        type: file
+        description: Chromosomes sizing file
+        pattern: "*.{csv}"
+        ontologies:
+          - edam: "http://edamontology.org/format_3752"
+  - - protein_domains:
+        type: file
+        description: Protein Domains file
+        pattern: "*.{gff3}"
+        ontologies:
+          - edam: "http://edamontology.org/format_1975"
+output:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1', single_end:false ]`
+    - pdf:
+        type: file
+        description: Fusion visualization PDF file
+        pattern: "*.{pdf}"
+        ontologies:
+          - edam: "http://edamontology.org/format_3508"
+  - - versions:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+authors:
+  - "@blancoj_mskcc <blancoj@mskcc.org> - Blanco Heredia, Juan"
+maintainers:
+  - "@blancoj_mskcc <blancoj@mskcc.org> - Blanco Heredia, Juan"

@@ -12,8 +12,9 @@ include { CAT_CAT as MERGE_CFF                } from '../../modules/nf-core/cat/
 include { METAFUSION_RUN                      } from '../../modules/local/metafusion/run/main'
 include { ADD_FLAG                            } from '../../modules/local/add_flags/main'
 include { CFF_ANNOTATE as CFF_FINALIZE        } from '../../modules/local/cff_annotate/main'
-include { CFF_ANNOTATE as ADD_FLAG_AGFUSION   } from  '../../modules/local/cff_annotate/main'
-include { FUSION_FILTER                       } from  '../../modules/local/fusion_filtering/main'
+include { CFF_ANNOTATE as ADD_FLAG_AGFUSION   } from '../../modules/local/cff_annotate/main'
+include { FUSION_FILTER                       } from '../../modules/local/fusion_filtering/main'
+include { FUSVIZ                              } from '../../modules/local/fusviz/main'
 
 
 workflow FUSION {
@@ -22,6 +23,7 @@ workflow FUSION {
     reads
     reads_untrimmed
     bam
+    bai
     star_index
     fasta
     gtf
@@ -32,6 +34,7 @@ workflow FUSION {
     gene_bed
     gene_info
     blocklist
+    arriba_cytobands
     arriba_blacklist
     arriba_known_fusions
     arriba_protein_domains
@@ -181,6 +184,21 @@ workflow FUSION {
         transcript_allowlist
     )
 
+    //
+    // Combine the FusionInspector Output & BAMs By ID
+    //
+    ch_fusviz_input = bam
+        .join(bai)
+        .join(FUSION_FILTER.out.filtered_fusions)
+        .filter{ meta, bam, bai, tsv -> tsv != null }
+
+    //
+    // MODULE: Run FusViz
+    //
+    FUSVIZ(ch_fusviz_input, arriba_cytobands, gtf.map{it[1]}, file(params.fusviz_chromosomes), arriba_protein_domains)
+    ch_fusviz_pdf = FUSVIZ.out.pdf
+
+    ch_versions = ch_versions.mix(FUSVIZ.out.versions.first())
     ch_versions = ch_versions.mix(CFF_FINALIZE.out.versions.first())
     ch_versions = ch_versions.mix(FUSION_FILTER.out.versions.first())
     ch_versions = ch_versions.mix(AGFUSION_CLINICAL.out.versions.first())

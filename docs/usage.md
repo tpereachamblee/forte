@@ -151,6 +151,19 @@ nextflow secrets set ONCOKB_TOKEN 'mytokenstr'
 
 The token will be saved to a hidden folder in your home directory: `~/.nextflow/secrets`. Once `ONCOKB_TOKEN` is configured, you can turn on the annotation process by adding the parameter `--run_oncokb_fusionannotator` on the command line.
 
+### FusViz (Fusion Visualization)
+
+FusViz automatically generates PDF visualizations for each sample with detected fusions. The visualizations include:
+
+- Circos Plot
+- Cytoband information and chromosome context
+- Per gene structure and coverage
+- Fusion transcript structure
+- Protein domain annotations
+- Notes like support, presence of the fusion in databases, and transcript used for plotting among others
+
+Output files are saved in `analysis/<sample>/fusviz/<sample>_FusViz.pdf`. FusViz uses reference files that are automatically selected based on the specified genome build (GRCh37 or GRCh38).
+
 ### Baits
 
 Forte performs QC analysis on targeted assays using Picard's `CollectHsMetrics` tool. Currently, `idt_v1`, `idt_v2` and `agilent` are supported when using the `GRCh37` genome (default). For other baitsets, `conf/igenomes.config` should be customized. Multiple baitsets can be used in the same run.

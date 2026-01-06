@@ -14,7 +14,8 @@ nextflow_pipeline {
 
         then {
             def stable_name = getAllFilesFromDir(outputDir, relative:true, includeDir: true, include:['analysis/**/*'])
-            def stable_path = getAllFilesFromDir(outputDir, ignore: ['pipeline_info/**','analysis/**/*Log*.out','analysis/**/*.rna_metrics','{analysis,multiqc}/**/*.{html,json,pdf}','analysis/**/*.fastp.log','references/**/Log.out','multiqc/**','analysis/**/*.umi_extract.log','analysis/**/*portcullis.log','analysis/*/multiqc/**','analysis/**/*.h5'])
+            def stable_path = getAllFilesFromDir(outputDir, ignore: ['pipeline_info/**','analysis/**/*Log*.out','analysis/**/*.rna_metrics','{analysis,multiqc}/**/*.{html,json,pdf}','analysis/**/*.fastp.log','references/**/Log.out','multiqc/**','analysis/**/*.umi_extract.log','analysis/**/*portcullis.log','analysis/*/multiqc/**','analysis/**/*.bam','analysis/**/*.h5'])
+            def bam_path = getAllFilesFromDir(outputDir, include:['analysis/**/*.bam'])
             assertAll(
                 // workflow completes with success
                 { assert workflow.success },
@@ -25,6 +26,8 @@ nextflow_pipeline {
                     stable_name,
                     stable_path,
                 ).match() },
+                { assert snapshot(bam_path.collect{ bam(it.toString()).getStatistics() }).match("bam statistics") },
+                { assert snapshot(bam_path.collect{ bam(it.toString()).getReadsMD5()  }).match("bam MD5") },
                 {
                     assert snapshot(
                         path("$outputDir/multiqc/dedupbam_multiqc_report_data/multiqc_general_stats.txt").csv(sep: "\t").rowCount,

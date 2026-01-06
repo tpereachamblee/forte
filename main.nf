@@ -22,6 +22,7 @@ params.starfusion_url         = getGenomeAttribute('starfusion_url')
 params.refflat                = getGenomeAttribute('refflat')
 params.baits                  = getGenomeAttribute('baits')
 params.cdna                   = getGenomeAttribute('cdna')
+params.arriba_cytobands       = getGenomeAttribute('arriba_cytobands')
 params.arriba_blacklist       = getGenomeAttribute('arriba_blacklist')
 params.arriba_known_fusions   = getGenomeAttribute('arriba_known_fusions')
 params.arriba_protein_domains = getGenomeAttribute('arriba_protein_domains')
@@ -32,6 +33,8 @@ params.ensembl_version        = getGenomeAttribute('ensembl_version')
 params.transcript_allowlist   = getGenomeAttribute('transcript_allowlist')
 params.clinical_genes         = getGenomeAttribute('clinical_genes')
 params.reportable_junctions   = getGenomeAttribute('reportable_junctions')
+params.cis_sage_allow         = getGenomeAttribute('cis_sage_allow')
+params.fusviz_chromosomes     = "${projectDir}/assets/fusviz_chromosomes_${params.genome}.csv"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

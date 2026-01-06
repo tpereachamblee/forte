@@ -1,4 +1,19 @@
 {
+    "bam MD5": {
+        "content": [
+            [
+                "b4346b3f00b295323db5cd3a5b9ccbab",
+                "e3c22b76526d7454f1417a5e438460e6",
+                "f17954831b986a2470d5a0e31878ef27",
+                "f3f7e41871fce298de0aa7f0a5a3cb75"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "24.10.5"
+        },
+        "timestamp": "2025-12-01T12:28:09.689452"
+    },
     "Test pipeline - Should run without failures": {
         "content": [
             72,
@@ -394,7 +409,6 @@
                 "analysis/SAMPLE_SINGLE_END/tximeta/SAMPLE_SINGLE_END.transcript_tpm.tsv"
             ],
             [
-                "SAMPLE_PAIRED_END.Aligned.sortedByCoord.out.bam:md5,21ca16bde262a342f0d90225a6693b81",
                 "SAMPLE_PAIRED_END.Aligned.sortedByCoord.out.bam.bai:md5,4d71e92123f68d9190fba7d8e1a4bb2e",
                 "SAMPLE_PAIRED_END.SJ.out.tab:md5,6520cdbb7af487d58c04496f2202ae0c",
                 "SAMPLE_PAIRED_END.fusions.discarded.tsv:md5,b626663ce7dc5c3ce057586bdd6e18ff",
@@ -466,7 +480,6 @@
                 "SAMPLE_PAIRED_END_UMI.dedup_edit_distance.tsv:md5,9400ca86c24c405cadae9f759caeeb0b",
                 "SAMPLE_PAIRED_END_UMI.dedup_per_umi.tsv:md5,b04395d0c14835f1053357bcd61751e5",
                 "SAMPLE_PAIRED_END_UMI.dedup_per_umi_per_position.tsv:md5,292837f47c110cddcd7adfe548d218fe",
-                "SAMPLE_SINGLE_END.Aligned.sortedByCoord.out.bam:md5,b2d4571a370fc7ac33ef97ea774a2e92",
                 "SAMPLE_SINGLE_END.Aligned.sortedByCoord.out.bam.bai:md5,6c0753377ce943214f8bd249580b3891",
                 "SAMPLE_SINGLE_END.SJ.out.tab:md5,5394766aa3b984ae52e2a443c9c7ba9d",
                 "SAMPLE_SINGLE_END.fusions.discarded.tsv:md5,687f40e6814e054098be7f42de8fcbf8",
@@ -518,7 +531,7 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.0"
         },
         "timestamp": "2026-01-06T11:46:32.294199227"
     },
@@ -531,7 +544,62 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "25.10.2"
+            "nextflow": "25.10.0"
+        },
+        "timestamp": "2025-12-01T12:28:08.718534"
+    },
+    "bam statistics": {
+        "content": [
+            [
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 13,
+                    "meanReadLength": 142,
+                    "maxQuality": 255,
+                    "minQuality": 0,
+                    "meanQuality": 132,
+                    "readCount": 9238,
+                    "duplicateReadCount": 0,
+                    "sorted": false
+                },
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 13,
+                    "meanReadLength": 139,
+                    "maxQuality": 255,
+                    "minQuality": 0,
+                    "meanQuality": 135,
+                    "readCount": 9164,
+                    "duplicateReadCount": 0,
+                    "sorted": false
+                },
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 15,
+                    "meanReadLength": 139,
+                    "maxQuality": 255,
+                    "minQuality": 1,
+                    "meanQuality": 209,
+                    "readCount": 3854,
+                    "duplicateReadCount": 0,
+                    "sorted": true
+                },
+                {
+                    "maxReadLength": 151,
+                    "minReadLength": 15,
+                    "meanReadLength": 140,
+                    "maxQuality": 255,
+                    "minQuality": 0,
+                    "meanQuality": 228,
+                    "readCount": 4290,
+                    "duplicateReadCount": 0,
+                    "sorted": false
+                }
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "24.10.5"
         },
         "timestamp": "2026-01-06T11:46:32.834661544"
     }

@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#138](https://github.com/mskcc/forte/pull/128) - enable clinical gene expansion in agfusion
 
+- [#13](https://github.com/MSK-Staging/FORTE/pull/13) - enable final fusion filtering, identify optimal breakpoints per cluster, add somatic flags
+
 - [#4](https://github.com/MSK-Staging/FORTE/pull/4) - Generate percent oncogenic isoforms from portcullis output
 
 - [#12](https://github.com/MSK-Staging/FORTE/pull/12) - add automatic tx2gene generation and tximport integration for gene-level quantification from kallisto transcript abundances. Closes [#11](https://github.com/MSK-Staging/FORTE/issues/11)
@@ -72,6 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#7](https://github.com/MSK-Staging/FORTE/pull/7) - Fix failing nf-test previously not caught in [#1](https://github.com/MSK-Staging/FORTE/pull/1)
 
 - [#8](https://github.com/MSK-Staging/FORTE/pull/8) - Change bam compression level for primary bam alignment to 1
+
+- [#9](https://github.com/MSK-Staging/FORTE/pull/9) - Update nf-tests to check bams using nft-bam
 
 - [#14](https://github.com/MSK-Staging/FORTE/pull/14) - Enabled kallisto processing in nf-tests
 

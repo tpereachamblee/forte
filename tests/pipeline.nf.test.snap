@@ -10,9 +10,9 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "24.10.5"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-01T12:28:09.689452"
+        "timestamp": "2026-01-06T16:54:47.892678281"
     },
     "Test pipeline - Should run without failures": {
         "content": [
@@ -439,7 +439,6 @@
                 "SAMPLE_PAIRED_END.transcript_counts.tsv:md5,8e98143185f2e019ac9ab618ebb74a2d",
                 "SAMPLE_PAIRED_END.transcript_lengths.tsv:md5,cbf60903e8d0cc9795ad4cf1238810dd",
                 "SAMPLE_PAIRED_END.transcript_tpm.tsv:md5,dcaf12792b522567f8f78a90f0660a47",
-                "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam:md5,557db8042227784d9aa48faaca8da582",
                 "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam.bai:md5,5c4fcf3973c8cbf9e39c9cbd67c1af07",
                 "SAMPLE_PAIRED_END_UMI.SJ.out.tab:md5,4d1c29abc9625bdffb30f80208ae13a3",
                 "SAMPLE_PAIRED_END_UMI.fusions.discarded.tsv:md5,03d4b7d75c89c62e48444e7822f3f71c",
@@ -475,7 +474,6 @@
                 "SAMPLE_PAIRED_END_UMI.transcript_counts.tsv:md5,0f36be1b048d45a653105ffd7e41b6a8",
                 "SAMPLE_PAIRED_END_UMI.transcript_lengths.tsv:md5,e368718d864d692f9159ba558264e248",
                 "SAMPLE_PAIRED_END_UMI.transcript_tpm.tsv:md5,c09018094d6ccf284f716ae41644ea20",
-                "SAMPLE_PAIRED_END_UMI.dedup.bam:md5,6cd665ff4ed72af07d37fe093a04db2f",
                 "SAMPLE_PAIRED_END_UMI.dedup.bam.bai:md5,2bfed05af1311f637a5e724347bfa267",
                 "SAMPLE_PAIRED_END_UMI.dedup_edit_distance.tsv:md5,9400ca86c24c405cadae9f759caeeb0b",
                 "SAMPLE_PAIRED_END_UMI.dedup_per_umi.tsv:md5,b04395d0c14835f1053357bcd61751e5",
@@ -531,22 +529,9 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "25.10.0"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-06T11:46:32.294199227"
-    },
-    "Gen Stats": {
-        "content": [
-            1,
-            10,
-            6,
-            21
-        ],
-        "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.10.0"
-        },
-        "timestamp": "2025-12-01T12:28:08.718534"
+        "timestamp": "2026-01-06T16:54:47.28578033"
     },
     "bam statistics": {
         "content": [
@@ -599,8 +584,21 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "24.10.5"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-06T11:46:32.834661544"
+        "timestamp": "2026-01-06T16:54:47.664738725"
+    },
+    "Gen Stats": {
+        "content": [
+            1,
+            10,
+            6,
+            21
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-06T16:54:48.339822593"
     }
 }

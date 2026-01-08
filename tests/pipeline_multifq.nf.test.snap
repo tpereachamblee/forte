@@ -9,9 +9,9 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "24.10.5"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-01T12:32:21.966314"
+        "timestamp": "2026-01-06T16:57:18.376378357"
     },
     "Run with multiple fq per sample": {
         "content": [
@@ -371,7 +371,6 @@
                 "SAMPLE_PAIRED_END.transcript_counts.tsv:md5,8e98143185f2e019ac9ab618ebb74a2d",
                 "SAMPLE_PAIRED_END.transcript_lengths.tsv:md5,cbf60903e8d0cc9795ad4cf1238810dd",
                 "SAMPLE_PAIRED_END.transcript_tpm.tsv:md5,dcaf12792b522567f8f78a90f0660a47",
-                "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam:md5,6fbf3015c9f9eef37d3ecd9ee48ced5e",
                 "SAMPLE_PAIRED_END_UMI.Aligned.sortedByCoord.out.bam.bai:md5,a3f4d4acb5523601af8f82b46e4fea8d",
                 "SAMPLE_PAIRED_END_UMI.SJ.out.tab:md5,b46cb94829fc7279d447eea2b4d3f1b7",
                 "SAMPLE_PAIRED_END_UMI.fusions.discarded.tsv:md5,5caa821f01e23b99e90eb0d85c2f6018",
@@ -409,7 +408,6 @@
                 "SAMPLE_PAIRED_END_UMI.transcript_counts.tsv:md5,8ce8b6509d2085b9af720f193be6af3a",
                 "SAMPLE_PAIRED_END_UMI.transcript_lengths.tsv:md5,86f6fd8502a564771ef25880d05f9bf7",
                 "SAMPLE_PAIRED_END_UMI.transcript_tpm.tsv:md5,0874e820ba5d143939a94e898a0df767",
-                "SAMPLE_PAIRED_END_UMI.dedup.bam:md5,f1bfceb4a8f258d4901751d2f5049a3e",
                 "SAMPLE_PAIRED_END_UMI.dedup.bam.bai:md5,f3be74cda0386562116bc7f9c020bc50",
                 "SAMPLE_PAIRED_END_UMI.dedup_edit_distance.tsv:md5,9cc338b58a6fecf42e5c9ff24df54ef3",
                 "SAMPLE_PAIRED_END_UMI.dedup_per_umi.tsv:md5,e03c28b6b0e8f724bb91b3bd54dc2ba7",
@@ -440,22 +438,9 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "25.10.0"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-06T11:49:27.500985011"
-    },
-    "Gen Stats": {
-        "content": [
-            1,
-            10,
-            6,
-            21
-        ],
-        "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.10.0"
-        },
-        "timestamp": "2025-12-01T12:32:19.910898"
+        "timestamp": "2026-01-06T16:57:16.793999946"
     },
     "bam statistics": {
         "content": [
@@ -497,8 +482,21 @@
         ],
         "meta": {
             "nf-test": "0.9.3",
-            "nextflow": "24.10.5"
+            "nextflow": "25.10.2"
         },
-        "timestamp": "2026-01-06T11:49:28.458881664"
+        "timestamp": "2026-01-06T16:57:17.664957546"
+    },
+    "Gen Stats": {
+        "content": [
+            1,
+            10,
+            6,
+            21
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-06T16:57:19.116236285"
     }
 }
